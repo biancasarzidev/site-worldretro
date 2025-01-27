@@ -8,7 +8,7 @@
     --secondary-color: darkviolet;
     --text-color: white;
     --background-color: black;
-    --transition: all 0.2s ease-in-out;
+    --transition: .2s;
 }
 
 * {
@@ -36,17 +36,13 @@ header {
     background-color: var(--background-color);
 }
 
-header nav {
-    margin: 0;
-}
-
 header .logo img {
     width: 94px;
     height: auto;
     padding: 8px 0;
 }
 
-nav {
+.nav-menu {
     background-color: blueviolet;
     padding: 10px;
     display: flex;
@@ -274,7 +270,6 @@ footer {
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: var(--primary-color);
         width: 100%;
         padding: 10px 20px;
         border-radius: 0 0 10px 10px;
@@ -288,6 +283,29 @@ footer {
 
     .hamburger-menu {
         display: block;
+    }
+
+    .produto-card {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .produto-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .produto-card h3 {
+        font-size: 22px;
+    }
+
+    .produto-card .preco {
+        font-size: 20px;
+    }
+
+    .produto-card button {
+        font-size: 18px;
+        padding: 12px 25px;
     }
 
     .footer-container {
