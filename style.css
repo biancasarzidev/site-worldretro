@@ -144,7 +144,7 @@ nav a:hover{
     display: flex;
     justify-content: space-around; /* Espaça os cards de forma igual */
     flex-wrap: wrap; /* Permite que os cards se ajustem quando a tela for pequena */
-    gap: 20px; /* Espaçamento entre os cards */
+    gap: 5px; /* Espaçamento entre os cards */
 }
 
 .produto-card {
@@ -234,6 +234,7 @@ footer {
 .footer-info p {
     font-size: 14px;
     line-height: 1.5;
+    font-style: italic;
 }
 
 .footer-social {
