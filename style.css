@@ -18,6 +18,8 @@ body {
     height: 100vh;
 }
 
+/*--- AQUI COMEÇA O CABEÇALHO E LOGO ---*/
+
 .interface {
     max-width: 1100px;
     margin: 0 auto;
@@ -51,11 +53,21 @@ nav > a {
 .cart {
     position: absolute;
     top: 30px;
-    right: 20px;
+    right: 10px;
     background-color: blueviolet;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cart-icon {
+    width: 24px;
+    height: 24px;
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 20px;
 }
 
 .cart a {
@@ -63,6 +75,8 @@ nav > a {
     color: #ffffff;
     font-weight: bold;
 }
+
+/*--- AQUI TERMINA O CABEÇALHO E LOGO ---*/
 
 .banner{
     margin-top: 20px;
