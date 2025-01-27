@@ -306,6 +306,7 @@ footer {
         padding: 10px;
         border-radius: 8px;
         width: 200px;
+        z-index: 1000;
     }
 
     .nav-menu.active {
@@ -315,6 +316,7 @@ footer {
     .hamburger-menu {
         display: block;
         cursor: pointer;
+        z-index: 1001;
     }
 
     .hamburger-menu i {
@@ -329,11 +331,12 @@ footer {
     }
 
     .actions {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      flex-direction: column;
-      gap: 10px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 999;
     }
 
     .logo img {
