@@ -21,8 +21,7 @@
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    height: 100vh;
-    width: 100vw;
+    margin: 0;
 }
 
 /* Cabeçalho e logo */
@@ -50,12 +49,7 @@ header .logo img {
     align-items: center;
     gap: 20px;
     width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: 999;
-    max-width: none;
 }
 
 .nav-menu a {
@@ -263,6 +257,7 @@ footer {
 
     .hamburger-menu i {
         font-size: 30px;
+        margin-left: 10px;
     }
 
     nav {
