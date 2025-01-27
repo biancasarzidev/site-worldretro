@@ -16,12 +16,13 @@ const banners = document.querySelectorAll('.banner');
 const totalBanners = banners.length;
 
 const showBanner = (index) => {
-  banners.forEach((banner, i) => {
+  // Remove a classe 'active' de todos os banners
+  banners.forEach((banner) => {
     banner.classList.remove('active');
-    if (i === index) {
-      banner.classList.add('active');
-    }
   });
+  
+  // Adiciona a classe 'active' no banner atual
+  banners[index].classList.add('active');
 };
 
 // Navegação para a seta esquerda

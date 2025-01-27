@@ -149,12 +149,8 @@ nav {
   
   /* Estilo para cada banner */
 .banner {
-    position: absolute;
+    display: none; 
     width: 100%;
-    top: 0;
-    left: 0;
-    transition: transform 0.5s ease-in-out; /* Transição de movimento para o banner */
-    transform: translateX(100%); /* Começa à direita */
 }
   
 .banner img {
@@ -163,9 +159,9 @@ nav {
     border-radius: 10px;
 }
   
-  /* Apenas o banner ativo será visível e estará na posição normal */
+  /* Apenas o banner ativo será exibido */
 .banner.active {
-    transform: translateX(0); /* Coloca o banner ativo na posição inicial */
+    display: block;
 }
   
   /* Estilo das setas de navegação */
@@ -180,7 +176,7 @@ nav {
     cursor: pointer;
     border-radius: 50%;
     z-index: 999;
- }
+}
   
 .arrow.left {
     left: 10px;
@@ -189,7 +185,7 @@ nav {
 .arrow.right {
     right: 10px;
 }
-
+  
 /* Categorias */
 .categorias {
     margin: 20px 0;
