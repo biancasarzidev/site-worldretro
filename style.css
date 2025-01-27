@@ -311,9 +311,13 @@ footer {
         padding: 15px 0;
     }
 
+    .produtos-lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .produto-card {
-        width: 90%;
-        padding: 20px;
+        padding: 10px;
+        text-align: center;
     }
 
     .produto-card img {
@@ -322,16 +326,16 @@ footer {
     }
 
     .produto-card h3 {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .produto-card .preco {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .produto-card button {
-        font-size: 18px;
-        padding: 12px 25px;
+        font-size: 16px;
+        padding: 10px 20px;
     }
 
     .footer-container {
