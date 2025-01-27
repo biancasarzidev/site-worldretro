@@ -56,7 +56,7 @@ header .logo img {
 }
 
 .search input {
-    width: 25%;
+    width: 20%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -66,7 +66,7 @@ header .logo img {
 .search button {
     background-color: blueviolet;
     border: none;
-    padding: 9px 14px;
+    padding: 10px 15px;
     cursor: pointer;
     border-radius: 4px;
     margin-left: 5px;
@@ -190,6 +190,27 @@ nav {
   
 .arrow.right {
     right: 10px;
+}
+
+.voltar-menu {
+    margin: 8px 0;
+    text-align: left;
+}
+  
+.btn-voltar {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 8px 16px;
+    background-color: blueviolet;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+  
+.btn-voltar:hover {
+    background-color: darkviolet;
 }
   
 /* Categorias */
@@ -353,6 +374,7 @@ footer {
     .hamburger-menu i {
         font-size: 30px;
         margin-left: 10px;
+        display: block;
     }
 
     nav {
@@ -374,20 +396,23 @@ footer {
     }
 
     .nav-menu.active {
-        display: flex;
-    }
-
-    .hamburger-menu {
         display: block;
     }
 
+    .hamburger-menu {
+        display: flex;
+    }
+
     .cadastro, .cart {
-        width: 50px;
-        height: 50px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        height: auto;
+        padding: 13px;
     }
 
     .cadastro a, .cart a {
-        font-size: 24px;
+        font-size: 15px;
     }
 
     .search input { 
@@ -404,48 +429,69 @@ footer {
     }
 
     .categorias {
-        background-color: blueviolet;
-        padding: 10px;
+        padding: 9px;
     }
     
     .cate ul {
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        list-style: none;
     }
     
     .cate ul li {
+        flex: 1 1 45%;
         text-align: center;
-        margin-bottom: 10px;
+        margin: 5px;
     }
     
     .cate button {
-        width: 90%;
-        padding: 10px 0;
+        width: 100%;
+        padding: 9px 0;
+        font-size: 15px;
+        background-color: #6a0dad;
+        color: white;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .cate button:hover {
+        background-color: #5a009d;
+    }
+
+    .produtos h2 {
+        margin-top: 8px;
+        padding: 8px;
+        font-size: 21px;
     }
 
     .produtos-lista {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta o número de colunas para telas menores */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 10px;
     }
 
     .produto-card {
-        width: 100%;
-        padding: 10px; /* Reduz o padding para telas pequenas */
+        width: 70%;
+        padding: 12px;
     }
 
     .produto-card img {
-        border-radius: 5px; /* Ajusta a borda das imagens para telas menores */
+        border-radius: 5px;
     }
 
     .produto-card h3 {
-        font-size: 16px; /* Ajusta o tamanho da fonte do título */
+        font-size: 16px;
     }
 
     .produto-card .preco {
-        font-size: 15px; /* Ajusta o tamanho da fonte do preço */
+        font-size: 15px;
     }
 
     .produto-card button {
-        padding: 8px 16px; /* Ajusta o tamanho do botão */
+        padding: 8px 16px;
     }
 
     .footer-container {
@@ -462,5 +508,34 @@ footer {
 
     .social-icons {
         justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+    }
+
+    nav {
+        position: relative;
+    }
+}
+
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .nav-menu ul li {
+        margin: 0 15px;
     }
 }
