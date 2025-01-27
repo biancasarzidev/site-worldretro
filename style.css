@@ -261,4 +261,81 @@ footer {
 
 /*--- FIM DO RODAPÉ ---*/
 
-
+/* Definindo o tamanho do iPhone 13 Pro Max como referência */
+@media (max-width: 430px) {
+    
+    body {
+      font-size: 14px;
+    }
+  
+    nav {
+      padding: 10px;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav a {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+  
+    .actions {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .logo img {
+      width: 80px;
+    }
+  
+    .banner img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .categorias .cate ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .produtos-lista {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .produto-card {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-social .social-icons {
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+    }
+  
+    .produto-card button,
+    .cate button {
+      width: 100%;
+    }
+  
+    .produtos h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+  
+    .produtos-lista {
+      gap: 15px;
+      justify-content: center;
+    }
+  }
+  
+  
