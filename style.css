@@ -201,10 +201,14 @@ nav a:hover{
 /*--- INÍCIO DO RODAPÉ ---*/
 
 footer {
-    background-color: #2c2c2c; /* Cor de fundo escura */
-    color: #fff; /* Texto branco */
-    padding: 40px 20px; 
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 40px 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .footer-container {
@@ -214,10 +218,12 @@ footer {
     max-width: 1100px;
     margin: 0 auto;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .footer-info {
     max-width: 500px;
+    text-align: center; /* Centraliza o texto da informação */
 }
 
 .footer-info h4 {
@@ -232,6 +238,7 @@ footer {
 
 .footer-social {
     max-width: 300px;
+    text-align: center; /* Centraliza o texto e ícones sociais */
 }
 
 .footer-social h4 {
@@ -241,7 +248,8 @@ footer {
 
 .social-icons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px; /* Aumenta o espaçamento entre os ícones */
 }
 
 .social-icon {
@@ -312,14 +320,22 @@ footer {
     }
   
     .footer-container {
-      flex-direction: column;
-      text-align: center;
+        flex-direction: column;
+        align-items: center;
     }
-  
-    .footer-social .social-icons {
-      flex-direction: row;
-      justify-content: center;
-      gap: 10px;
+
+    .footer-info {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footer-social {
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+        gap: 15px; /* Ajusta o espaçamento em telas pequenas */
     }
   
     .produto-card button,
