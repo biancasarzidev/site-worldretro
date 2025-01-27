@@ -41,7 +41,7 @@ header {
 }
 
 header .logo img {
-    width: 94px;
+    width: 100px;
     height: auto;
     padding: 8px 0;
 }
@@ -84,6 +84,7 @@ nav {
 .nav-menu {
     background-color: blueviolet;
     padding: 10px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,12 +118,12 @@ nav {
     top: 30px;
     right: 20px;
     display: flex;
-    gap: 15px;
+    gap: 5px;
 }
 
 .cadastro, .cart {
     background-color: var(--primary-color);
-    padding: 10px 20px;
+    padding: 8px 18px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -139,14 +140,50 @@ nav {
     transform: scale(1.07);
 }
 
+/* Contêiner do banner */
+.banner-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+  
+  /* Estilo para cada banner */
 .banner {
-    margin-top: 20px;
+    display: none;
+    width: 100%;
 }
 
 .banner img {
     width: 100%;
     height: auto;
     border-radius: 10px;
+}
+
+  /* Apenas o banner ativo será exibido */
+.banner.active {
+    display: block;
+}
+  
+  /* Estilo das setas de navegação */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 999;
+}
+  
+.arrow.left {
+    left: 10px;
+}
+  
+.arrow.right {
+    right: 10px;
 }
 
 /* Categorias */
@@ -185,15 +222,17 @@ nav {
 }
 
 .produtos h2 {
-    font-size: 28px;
+    font-size: 25px;
+    margin-top: 10px;
     margin-bottom: 20px;
+    background-color: #8159868c;
 }
 
 .produtos-lista {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
 
 .produto-card {
