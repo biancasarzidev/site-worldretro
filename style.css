@@ -264,14 +264,23 @@ nav {
 }
 
 .produto-card h3 {
-    font-size: 20px;
+    color: rgb(97, 97, 97);
+    font-size: 18px;
     margin: 10px 0;
 }
 
 .produto-card .preco {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
-    color: #000;
+    color: #3ff153;
+    margin: 10px 0;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.388);
+}
+
+.produto-card .desconto {
+    font-size: 13px;
+    font-weight: bold;
+    color: #737573;
     margin: 10px 0;
 }
 
