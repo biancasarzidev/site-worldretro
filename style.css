@@ -289,19 +289,19 @@ footer {
         padding: 10px;
       }
     
-      .cate ul {
+    .cate ul {
         display: block;
-      }
+    }
     
-      .cate ul li {
+    .cate ul li {
         margin-bottom: 10px;
         text-align: center;
-      }
+    }
     
-      .cate button {
+    .cate button {
         width: 100%; 
         padding: 15px 0;
-      }
+    }
 
     .produto-card {
         width: 90%;
