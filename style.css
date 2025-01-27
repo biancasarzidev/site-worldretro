@@ -30,7 +30,7 @@ header {
 }
 
 header .logo img {
-    width: 100px;
+    width: 96px;
     height: auto; 
 }
 
@@ -47,33 +47,39 @@ nav > a {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    font-weight: bold;
 }
 
-.cart {
+nav a:hover{
+    display: inline-block;
+    transform: scale(1.07);
+    transition: .2s;
+}
+
+.actions {
     position: absolute;
     top: 30px;
     right: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+.cadastro, .cart {
     background-color: blueviolet;
-    padding: 20px;
+    padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-.cart-icon {
-    width: 24px;
-    height: 24px;
-    background-color: blueviolet;
-    padding: 10px;
-    border-radius: 50%;
-    vertical-align: middle;
-    margin-right: 20px;
-}
-
-.cart a {
+.cadastro a, .cart a {
     text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
+    color: white;
+}
+
+.cadastro a:hover, .cart a:hover {
+    display: inline-block;
+    transform: scale(1.07);
+    transition: 0.2s;
 }
 
 /*--- AQUI TERMINA O CABEÇALHO E LOGO ---*/
