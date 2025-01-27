@@ -30,13 +30,15 @@ header {
 }
 
 header .logo img {
-    width: 96px;
-    height: auto; 
+    width: 94px;
+    height: auto;
+    padding-top: 8px; 
+    padding-bottom: 8px;
 }
 
 nav {
     background-color: blueviolet;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +60,7 @@ nav a:hover{
 .actions {
     position: absolute;
     top: 30px;
-    right: 10px;
+    right: 20px;
     display: flex;
     gap: 15px;
 }
@@ -82,8 +84,45 @@ nav a:hover{
     transition: 0.2s;
 }
 
-/*--- AQUI TERMINA O CABEÇALHO E LOGO ---*/
-
 .banner{
     margin-top: 20px;
 }
+
+/*--- AQUI TERMINA O CABEÇALHO E LOGO ---*/
+
+/*--- INÍCIO DAS CATEGORIAS ---*/
+
+.categorias {
+    margin: 20px 0; /* Adiciona espaçamento ao redor da seção */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.cate ul {
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o padding padrão */
+    display: flex; /* Aplica Flexbox para colocar os itens lado a lado */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 15px; /* Define o espaçamento entre os itens */
+}
+
+.cate li {
+    display: inline-block; /* Garante que cada item seja tratado como bloco inline */
+}
+
+.cate button {
+    padding: 10px 20px; /* Adiciona espaço interno no botão */
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+    background-color: blueviolet; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Arredonda as bordas */
+    cursor: pointer; /* Adiciona o cursor de mão */
+    transition: background-color 0.3s; /* Transição suave para o hover */
+}
+
+.cate button:hover {
+    background-color: darkviolet;
+    transform: scale(1.07);
+    transition: 0.2s;
+}
+
