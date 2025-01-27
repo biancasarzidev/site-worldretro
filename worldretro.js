@@ -20,8 +20,6 @@ const showBanner = (index) => {
     banner.classList.remove('active');
     if (i === index) {
       banner.classList.add('active');
-    } else {
-      banner.style.opacity = 0; // Mantém os outros banners invisíveis
     }
   });
 };
