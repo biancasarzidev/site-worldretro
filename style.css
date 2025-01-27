@@ -110,14 +110,14 @@ nav a:hover{
 }
 
 .cate button {
-    padding: 10px 20px; /* Adiciona espaço interno no botão */
-    font-size: 14px; /* Ajusta o tamanho da fonte */
-    background-color: blueviolet; /* Cor de fundo do botão */
-    color: white; /* Cor do texto */
-    border: none; /* Remove a borda padrão */
-    border-radius: 5px; /* Arredonda as bordas */
-    cursor: pointer; /* Adiciona o cursor de mão */
-    transition: background-color 0.3s; /* Transição suave para o hover */
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .cate button:hover {
@@ -125,4 +125,75 @@ nav a:hover{
     transform: scale(1.07);
     transition: 0.2s;
 }
+
+/*--- FIM DAS CATEGORIAS ---*/
+
+/*--- INÍCIO DOS PRODUTOS ---*/
+
+.produtos {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.produtos h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.produtos-lista {
+    display: flex;
+    justify-content: space-around; /* Espaça os cards de forma igual */
+    flex-wrap: wrap; /* Permite que os cards se ajustem quando a tela for pequena */
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+.produto-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Garante que a imagem não ultrapasse o card */
+    width: 250px;
+    text-align: center;
+    padding: 15px;
+}
+
+.produto-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.produto-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.produto-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 10px;
+}
+
+.produto-card button {
+    background-color: blueviolet;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.produto-card button:hover {
+    background-color: darkviolet;
+}
+
 
