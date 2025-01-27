@@ -260,6 +260,11 @@ footer {
 }
 
 @media (max-width: 430px) {
+
+    .hamburger-menu i {
+        font-size: 30px;
+    }
+
     nav {
         justify-content: space-between;
         padding: 10px 20px;
@@ -287,20 +292,22 @@ footer {
     }
 
     .categorias {
-        padding: 10px;
-      }
+        background-color: blueviolet;
+        height: 100vh;
+        padding: 20px;
+    }
     
     .cate ul {
         display: block;
     }
     
     .cate ul li {
-        margin-bottom: 10px;
         text-align: center;
+        margin-bottom: 15px;
     }
     
     .cate button {
-        width: 100%; 
+        width: 100%;
         padding: 15px 0;
     }
 
