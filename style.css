@@ -226,27 +226,28 @@ footer {
     align-items: flex-start;
     max-width: 1100px;
     margin: 0 auto;
-    flex-wrap: wrap; /* Para ajustar em telas menores */
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .footer-info,
 .footer-social {
-    flex: 1; /* Distribui espaço igualmente */
-    min-width: 300px; /* Define largura mínima para evitar colapsos */
+    flex: 1; 
+    min-width: 300px;
 }
 
 .footer-info {
-    text-align: left; /* Alinha o texto à esquerda */
+    text-align: left;
+    font-style: italic;
 }
 
 .footer-social {
-    text-align: right; /* Alinha os ícones à direita */
+    text-align: right;
 }
 
 .social-icons {
     display: flex;
-    justify-content: flex-end; /* Ajusta para o alinhamento correto */
+    justify-content: flex-end;
     gap: 20px;
 }
 
