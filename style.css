@@ -41,6 +41,33 @@ header .logo img {
     padding: 8px 0;
 }
 
+/* Estilos do campo de pesquisa */
+.search {
+    display: flex;
+    align-items: center;
+}
+  
+.search input {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+  
+.search button {
+    background-color: blueviolet;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+  
+.search button i {
+    color: white;
+    font-size: 18px;
+}
+
 .nav-menu {
     background-color: blueviolet;
     padding: 10px;
@@ -284,6 +311,19 @@ footer {
 
     .hamburger-menu {
         display: block;
+    }
+
+    .search {
+        margin: 10px 0;
+        width: 100%;
+    }
+    
+    .search input {
+        width: calc(100% - 50px); /* Ajuste para o tamanho do botão */
+    }
+    
+    .search button {
+        padding: 8px 12px;
     }
 
     .categorias {
