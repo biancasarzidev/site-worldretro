@@ -18,9 +18,10 @@ const totalBanners = banners.length;
 const showBanner = (index) => {
   banners.forEach((banner, i) => {
     banner.classList.remove('active');
-    // Quando o banner é o ativo, ele fica visível
     if (i === index) {
       banner.classList.add('active');
+    } else {
+      banner.style.opacity = 0; // Mantém os outros banners invisíveis
     }
   });
 };
