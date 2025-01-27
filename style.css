@@ -2,42 +2,48 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root{
+:root {
     --font1: 'Poppins', cursive, sans-serif;
+    --primary-color: blueviolet;
+    --secondary-color: darkviolet;
+    --text-color: white;
+    --background-color: black;
+    --transition: all 0.2s ease-in-out;
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: var(--font1);
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: var(--font1);
 }
 
 body {
-    background-color: black;
+    background-color: var(--background-color);
+    color: var(--text-color);
     height: 100vh;
 }
 
-/*--- AQUI COMEÇA O CABEÇALHO E LOGO ---*/
-
+/* Cabeçalho e logo */
 .interface {
     max-width: 1100px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 header {
     position: relative;
+    background-color: var(--background-color);
 }
 
 header .logo img {
     width: 94px;
     height: auto;
-    padding-top: 8px; 
-    padding-bottom: 8px;
+    padding: 8px 0;
 }
 
 nav {
-    background-color: blueviolet;
+    background-color: var(--primary-color);
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -45,16 +51,15 @@ nav {
     gap: 20px;
 }
 
-nav > a {
-    color: white;
+.nav-menu a {
+    color: var(--text-color);
     text-decoration: none;
     font-size: 16px;
+    transition: var(--transition);
 }
 
-nav a:hover {
-    display: inline-block;
+.nav-menu a:hover {
     transform: scale(1.07);
-    transition: .2s;
 }
 
 .hamburger-menu {
@@ -70,32 +75,34 @@ nav a:hover {
 }
 
 .cadastro, .cart {
-    background-color: blueviolet;
+    background-color: var(--primary-color);
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
+    transition: var(--transition);
 }
 
 .cadastro a, .cart a {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
 }
 
 .cadastro a:hover, .cart a:hover {
-    display: inline-block;
     transform: scale(1.07);
-    transition: 0.2s;
 }
 
-.banner{
+.banner {
     margin-top: 20px;
 }
 
-/*--- AQUI TERMINA O CABEÇALHO E LOGO ---*/
+.banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
 
-/*--- INÍCIO DAS CATEGORIAS ---*/
-
+/* Categorias */
 .categorias {
     margin: 20px 0;
     text-align: center;
@@ -103,37 +110,28 @@ nav a:hover {
 
 .cate ul {
     list-style: none;
-    padding: 0;
     display: flex;
     justify-content: center;
     gap: 15px;
 }
 
-.cate li {
-    display: inline-block;
-}
-
 .cate button {
     padding: 10px 20px;
     font-size: 14px;
-    background-color: rgb(148, 100, 193);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: var(--transition);
 }
 
 .cate button:hover {
-    background-color: darkviolet;
+    background-color: var(--secondary-color);
     transform: scale(1.07);
-    transition: 0.2s;
 }
 
-/*--- FIM DAS CATEGORIAS ---*/
-
-/*--- INÍCIO DOS PRODUTOS ---*/
-
+/* Produtos */
 .produtos {
     margin: 40px 0;
     text-align: center;
@@ -148,7 +146,7 @@ nav a:hover {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 20px;
 }
 
 .produto-card {
@@ -159,6 +157,12 @@ nav a:hover {
     width: 250px;
     text-align: center;
     padding: 15px;
+    transition: var(--transition);
+}
+
+.produto-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .produto-card img {
@@ -172,41 +176,32 @@ nav a:hover {
     margin: 10px 0;
 }
 
-.produto-card p {
-    font-size: 14px;
-    color: #666;
-}
-
-.preco {
+.produto-card .preco {
     font-size: 18px;
     font-weight: bold;
     color: #000;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 .produto-card button {
-    background-color: blueviolet;
+    background-color: var(--primary-color);
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 15px;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
 }
 
 .produto-card button:hover {
-    background-color: darkviolet;
+    background-color: var(--secondary-color);
 }
 
-/*--- FIM DOS PRODUTOS ---*/
-
-/*--- INÍCIO DO RODAPÉ ---*/
-
+/* Rodapé */
 footer {
     background-color: #815986;
-    color: #fff;
+    color: var(--text-color);
     padding: 40px 20px;
     text-align: center;
     display: flex;
@@ -222,7 +217,6 @@ footer {
     max-width: 1100px;
     margin: 0 auto;
     flex-wrap: wrap;
-    width: 100%;
 }
 
 .footer-info {
@@ -230,25 +224,9 @@ footer {
     text-align: center;
 }
 
-.footer-info h4 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.footer-info p {
-    font-size: 14px;
-    line-height: 1.5;
-    font-style: italic;
-}
-
 .footer-social {
     max-width: 300px;
     text-align: center;
-}
-
-.footer-social h4 {
-    font-size: 20px;
-    margin-bottom: 15px;
 }
 
 .social-icons {
@@ -258,143 +236,11 @@ footer {
 }
 
 .social-icon {
-    width: 30px;
-    height: 30px;
-}
-
-.social-icon {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
+    font-size: 30px;
+    color: var(--text-color);
+    transition: var(--transition);
 }
 
 .social-icon:hover {
     transform: scale(1.1);
-}
-
-.social-icon i {
-    font-size: 30px;
-    color: #fff; 
-    transition: transform 0.3s ease;
-}
-
-.social-icon:hover i {
-    transform: scale(1.1);
-}
-
-
-/*--- FIM DO RODAPÉ ---*/
-
-/* Ajuste para celular */
-@media (max-width: 430px) {
-    
-    body {
-      font-size: 14px;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        position: absolute;
-        top: 50px;
-        right: 10px;
-        background-color: blueviolet;
-        padding: 10px;
-        border-radius: 8px;
-        width: 200px;
-        z-index: 1000;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-
-    .hamburger-menu {
-        display: block;
-        cursor: pointer;
-        z-index: 1001;
-    }
-
-    .hamburger-menu i {
-        font-size: 30px;
-        color: white;
-    }
-
-    nav > a {
-        display: none;
-    }
-
-    .actions {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        flex-direction: column;
-        gap: 10px;
-        z-index: 999;
-    }
-
-    .logo img {
-      width: 80px;
-    }
-
-    .banner img {
-      width: 100%;
-      height: auto;
-    }
-
-    .categorias .cate ul {
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .produtos-lista {
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .produto-card {
-      width: 100%;
-      padding: 10px;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-info {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .footer-social {
-        text-align: center;
-    }
-
-    .social-icons {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .produto-card button,
-    .cate button {
-      width: 100%;
-    }
-
-    .produtos h2 {
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-
-    .produtos-lista {
-      gap: 15px;
-      justify-content: center;
-    }
 }
