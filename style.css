@@ -149,8 +149,10 @@ nav {
   
   /* Estilo para cada banner */
 .banner {
+    position: absolute;
     display: none;
     width: 100%;
+    transition: opacity 0.5s ease-in-out, z-index 0s 0.5s;
 }
 
 .banner img {
@@ -162,6 +164,7 @@ nav {
   /* Apenas o banner ativo será exibido */
 .banner.active {
     display: block;
+    position: relative;
 }
   
   /* Estilo das setas de navegação */
