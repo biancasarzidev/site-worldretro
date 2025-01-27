@@ -43,6 +43,7 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    position: relative;
 }
 
 nav > a {
@@ -93,20 +94,20 @@ nav a:hover{
 /*--- INÍCIO DAS CATEGORIAS ---*/
 
 .categorias {
-    margin: 20px 0; /* Adiciona espaçamento ao redor da seção */
-    text-align: center; /* Centraliza o conteúdo */
+    margin: 20px 0;
+    text-align: center;
 }
 
 .cate ul {
-    list-style: none; /* Remove os marcadores da lista */
-    padding: 0; /* Remove o padding padrão */
-    display: flex; /* Aplica Flexbox para colocar os itens lado a lado */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    gap: 15px; /* Define o espaçamento entre os itens */
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .cate li {
-    display: inline-block; /* Garante que cada item seja tratado como bloco inline */
+    display: inline-block;
 }
 
 .cate button {
@@ -142,16 +143,16 @@ nav a:hover{
 
 .produtos-lista {
     display: flex;
-    justify-content: space-around; /* Espaça os cards de forma igual */
-    flex-wrap: wrap; /* Permite que os cards se ajustem quando a tela for pequena */
-    gap: 5px; /* Espaçamento entre os cards */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .produto-card {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Garante que a imagem não ultrapasse o card */
+    overflow: hidden;
     width: 250px;
     text-align: center;
     padding: 15px;
@@ -281,13 +282,13 @@ footer {
 
 /*--- FIM DO RODAPÉ ---*/
 
-/* Definindo o tamanho do iPhone 13 Pro Max como referência */
+/* Ajuste para celular */
 @media (max-width: 430px) {
     
     body {
       font-size: 14px;
     }
-  
+
     nav {
       padding: 10px;
       flex-direction: column;
@@ -310,9 +311,10 @@ footer {
     .nav-menu.active {
         display: flex;
     }
-    
+
     .hamburger-menu {
         display: block;
+        cursor: pointer;
     }
 
     .hamburger-menu i {
@@ -325,7 +327,7 @@ footer {
         text-decoration: none;
         font-size: 16px;
     }
-  
+
     .actions {
       position: absolute;
       top: 15px;
@@ -333,31 +335,31 @@ footer {
       flex-direction: column;
       gap: 10px;
     }
-  
+
     .logo img {
       width: 80px;
     }
-  
+
     .banner img {
       width: 100%;
       height: auto;
     }
-  
+
     .categorias .cate ul {
       flex-direction: column;
       gap: 10px;
     }
-  
+
     .produtos-lista {
       flex-direction: column;
       gap: 15px;
     }
-  
+
     .produto-card {
       width: 100%;
       padding: 10px;
     }
-  
+
     .footer-container {
         flex-direction: column;
         align-items: center;
@@ -374,23 +376,21 @@ footer {
 
     .social-icons {
         justify-content: center;
-        gap: 15px; /* Ajusta o espaçamento em telas pequenas */
+        gap: 15px;
     }
-  
+
     .produto-card button,
     .cate button {
       width: 100%;
     }
-  
+
     .produtos h2 {
       font-size: 20px;
       margin-bottom: 15px;
     }
-  
+
     .produtos-lista {
       gap: 15px;
       justify-content: center;
     }
-  }
-  
-  
+}
