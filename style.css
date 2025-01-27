@@ -43,7 +43,6 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    position: relative;
 }
 
 nav > a {
@@ -52,10 +51,14 @@ nav > a {
     font-size: 16px;
 }
 
-nav a:hover{
+nav a:hover {
     display: inline-block;
     transform: scale(1.07);
     transition: .2s;
+}
+
+.hamburger-menu {
+    display: none;
 }
 
 .actions {
@@ -113,7 +116,7 @@ nav a:hover{
 .cate button {
     padding: 10px 20px;
     font-size: 14px;
-    background-color: blueviolet;
+    background-color: rgb(148, 100, 193);
     color: white;
     border: none;
     border-radius: 5px;
@@ -290,9 +293,8 @@ footer {
     }
 
     nav {
-      padding: 10px;
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .nav-menu {
@@ -313,6 +315,7 @@ footer {
         display: flex;
     }
 
+
     .hamburger-menu {
         display: block;
         cursor: pointer;
@@ -324,10 +327,8 @@ footer {
         color: white;
     }
 
-    nav a {
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
+    nav > a {
+        display: none;
     }
 
     .actions {
