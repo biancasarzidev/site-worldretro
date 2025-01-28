@@ -320,20 +320,88 @@ nav {
     background-color: var(--secondary-color);
 }
 
-.container2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* Estilo da área de login */
 
-.banner-pix {
-    box-sizing: border-box;
-    height: 100%;
-    padding-bottom: 30px;
+.login-section {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40px 20px;
+    background-color: #000000;
 }
+  
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #e3c1ed;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+  
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.login-form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+  
+.login-form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+  
+.login-form input:focus {
+    border-color: #6c63ff;
+    outline: none;
+}
+  
+.login-button {
+    padding: 10px 20px;
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.login-button:hover {
+    background-color: #5a54e2;
+}
+  
+.cadastro-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    font-style: italic;
+}
+  
+.cadastro-link a {
+    color: #6c63ff;
+    text-decoration: none;
+}
+  
+.cadastro-link a:hover {
+    text-decoration: underline;
+}
+  
 
 /* Rodapé */
 footer {
@@ -478,35 +546,42 @@ footer {
     }
 
     .produtos h2 {
-        margin-top: 8px;
-        padding: 8px;
-        font-size: 21px;
+        font-size: 18px;
+        margin-top: 4px;
+        padding: 4px;
+        line-height: 1.2;
     }
 
     .produtos-lista {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajusta o tamanho mínimo para telas pequenas */
+        gap: 8px;
     }
 
     .produto-card {
-        width: 70%;
-        padding: 12px;
+        width: 45%; /* Deixa o card ocupar toda a largura disponível */
+        padding: 7px;
+        margin: 7px;
     }
 
     .produto-card img {
         border-radius: 5px;
+        width: 80px; /* Reduz o tamanho das imagens */
+        height: auto;
     }
 
     .produto-card h3 {
-        font-size: 16px;
+        font-size: 14px;
+        line-height: 1.3;
     }
 
     .produto-card .preco {
-        font-size: 15px;
+        font-size: 12px;
+        line-height: 1;
     }
 
     .produto-card button {
-        padding: 8px 16px;
+        padding: 4px 8px; /* Diminui o botão */
+        font-size: 12px; 
     }
 
 

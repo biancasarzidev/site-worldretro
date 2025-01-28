@@ -56,3 +56,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+//login
+const loginForm = document.getElementById('loginForm');
+
+  loginForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Obtendo os valores dos campos
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+
+    // Validações básicas
+    if (!email || !senha) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    // Simulando validação de login (substitua por lógica de backend real)
+    if (email === 'usuario@exemplo.com' && senha === '123456') {
+      alert('Login bem-sucedido!');
+      // Redirecionar para outra página
+      window.location.href = 'pagina-principal.html';
+    } else {
+      alert('Email ou senha incorretos.');
+    }
+  });
