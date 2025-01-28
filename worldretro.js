@@ -123,5 +123,102 @@ scrollRight.addEventListener('click', () => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Botão Home
+  const homeButton = document.querySelector('a[href="#home"]');
 
+  if (homeButton) {
+    homeButton.addEventListener('click', (event) => {
+      event.preventDefault(); // Evita o comportamento padrão do link
+      window.scrollTo({
+        top: 0, // Vai para o topo da página
+        behavior: 'smooth', // Faz a rolagem suave
+      });
+    });
+  } else {
+    console.log('Botão Home não encontrado!');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll suave para a seção "Contato"
+  const contactLink = document.querySelector('a[href="#contact"]');
+
+  if (contactLink) {
+    contactLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Simulação do envio do formulário
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault(); // Impede o envio real
+      alert('Mensagem enviada com sucesso! Obrigado por entrar em contato.');
+      contactForm.reset(); // Limpa o formulário
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded'), () => {
+  // Seletores
+  const hamburger = document.querySelector('.hamburger-menu');
+  const navMenu = document.querySelector('.nav-menu');
+  const homeLink = document.querySelector('a[href="#home"]');
+  const logo = document.querySelector('.logo');
+  const contactLink = document.querySelector('a[href="#contact"]');
+  const contactSection = document.getElementById('contact');
+
+}
   
+  // Função para alternar o menu responsivo
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
+
+  // Função para fazer o scroll suave para a seção "home" (menu principal)
+  if (homeLink) {
+    homeLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0, // Volta ao topo da página
+        behavior: 'smooth'
+      });
+      navMenu.classList.remove('active'); // Fecha o menu hambúrguer
+      hamburger.classList.remove('active'); // Fecha o ícone do menu hambúrguer
+    });
+  }
+
+  // Funcionalidade para logo voltar ao menu principal
+  if (logo) {
+    logo.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0, // Volta ao topo da página
+        behavior: 'smooth'
+      });
+      navMenu.classList.remove('active'); // Fecha o menu hambúrguer
+      hamburger.classList.remove('active'); // Fecha o ícone do menu hambúrguer
+    });
+  }
+
+  // Scroll suave para a seção "Contato"
+  if (contactLink) {
+    contactLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      // Esconde o menu hambúrguer ao acessar a página de contato
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  }
+
+
+
+
+

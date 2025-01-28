@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>World Retrô - Contato</title>
+  <style>
+    /* Geral */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #000000;
+      color: white;
+      z-index: 10;
+      padding: 10px 20px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+    }
+
+    /* Para o menu hamburguer */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+    }
+
+    .hamburger-menu i {
+      font-size: 30px;
+    }
+
+    /* Menu de navegação na versão mobile */
+    .nav-menu.active {
+      display: block;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #000000;
+      padding: 10px;
+    }
+
+    /* Estilo para quando o menu estiver visível no mobile */
+    .nav-menu a {
+      display: block;
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .contact-section {
+      margin-top: 100px;
+      padding: 50px 20px;
+      background-color: #f9f9f9;
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form label {
+      font-size: 16px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      font-size: 16px;
+      color: white;
+      background-color: blueviolet;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: blueviolet;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: blueviolet;
+      color: white;
+    }
+
+    /* Esconde o menu hambúrguer quando a seção de contato estiver visível */
+    @media (max-width: 768px) {
+      .hamburger-menu {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho e logo -->
+  <header>
+    <div class="interface">
+      <div class="logo">
+        <a href="#home">
+          <img src="imagens/logo.png" alt="Logo World Retrô">
+        </a>
+      </div>
+
+      <!-- Botão Hamburguer -->
+      <div class="hamburger-menu">
+        <i class="fas fa-bars" aria-label="Abrir menu"></i>
+      </div>
+
+      <!-- Menu de navegação -->
+      <nav>
+        <div class="nav-menu">
+          <a href="#home" class="menu-link">Home</a>
+          <a href="#about">Lançamentos</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="#contact" class="menu-link">Contato</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tela de Contato -->
+  <main>
+    <section id="contact" class="contact-section">
+      <h2>Fale Conosco</h2>
+      <p>Preencha o formulário abaixo para entrar em contato conosco. Retornaremos o mais breve possível!</p>
+      <form id="contactForm" class="contact-form">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" rows="5" required></textarea>
+
+        <button type="submit" class="submit-button">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 World Retrô. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger-menu');
+      const navMenu = document.querySelector('.nav-menu');
+      const contactLink = document.querySelector('a[href="#contact"]');
+      const homeLink = document.querySelector('a[href="#home"]');
+      const contactSection = document.getElementById('contact');
+      const logoLink = document.querySelector('.logo a');
+
+      // Funcionalidade para o menu hamburguer
+      hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+
+      // Quando o link de Contato for clicado, o menu hambúrguer é fechado
+      if (contactLink) {
+        contactLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          // Esconde o menu hambúrguer ao acessar a página de contato
+          navMenu.classList.remove('active');
+          // Faz a rolagem suave para a seção de contato
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+
+          // Adiciona a classe de visibilidade
+          setTimeout(() => {
+            window.location.hash = '#contact';
+          }, 300); // Espera o menu fechar para depois navegar para a seção de contato
+        });
+      }
+
+      // Quando o link de "Home" for clicado, o menu hambúrguer é fechado
+      if (homeLink) {
+        homeLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          // Esconde o menu hamburguer
+          navMenu.classList.remove('active');
+          // Faz a rolagem suave para o início
+          window.location.hash = '#home';
+        });
+      }
+
+      // Clica na logo para voltar ao menu principal e esconder o menu hambúrguer
+      if (logoLink) {
+        logoLink.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          window.location.hash = '#home'; // Redireciona para a página inicial
+        });
+      }
+
+      // Detectar quando a página de Contato for acessada via URL
+      if (window.location.hash === "#contact") {
+        navMenu.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
