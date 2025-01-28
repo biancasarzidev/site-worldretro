@@ -112,10 +112,11 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s; /* Adiciona uma transição suave */
     }
 
     .contact-form button:hover {
-      background-color: blueviolet;
+      background-color: darkviolet; /* Muda a cor ao passar o mouse */
     }
 
     footer {
@@ -143,7 +144,7 @@
   <header>
     <div class="interface">
       <div class="logo">
-        <a href="#home">
+        <a href="#home" id="homeLink">
           <img src="imagens/logo.png" alt="Logo World Retrô">
         </a>
       </div>
@@ -156,10 +157,10 @@
       <!-- Menu de navegação -->
       <nav>
         <div class="nav-menu">
-          <a href="#home" class="menu-link">Home</a>
+          <a href="#" class="menu-link" id="homeMenu">Home</a>
           <a href="#about">Lançamentos</a>
           <a href="produtos.html">Produtos</a>
-          <a href="#contact" class="menu-link">Contato</a>
+          <a href="#contact" class="menu-link" id="contactMenu">Contato</a>
         </div>
       </nav>
     </div>
@@ -195,55 +196,35 @@
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger-menu');
       const navMenu = document.querySelector('.nav-menu');
-      const contactLink = document.querySelector('a[href="#contact"]');
-      const homeLink = document.querySelector('a[href="#home"]');
-      const contactSection = document.getElementById('contact');
-      const logoLink = document.querySelector('.logo a');
-
+      const homeLink = document.getElementById('homeMenu');
+      const contactLink = document.getElementById('contactMenu');
+      const homeLogo = document.getElementById('homeLink');
+      
       // Funcionalidade para o menu hamburguer
       hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
       });
 
-      // Quando o link de Contato for clicado, o menu hambúrguer é fechado
-      if (contactLink) {
-        contactLink.addEventListener('click', (event) => {
-          event.preventDefault();
-          // Esconde o menu hambúrguer ao acessar a página de contato
-          navMenu.classList.remove('active');
-          // Faz a rolagem suave para a seção de contato
-          contactSection.scrollIntoView({ behavior: 'smooth' });
+      // Quando o link de Home for clicado, fecha o menu e volta para a página anterior
+      homeLink.addEventListener('click', (event) => {
+        event.preventDefault(); // Impede a navegação padrão
+        navMenu.classList.remove('active'); // Fecha o menu
+        window.history.back(); // Volta para a página anterior
+      });
 
-          // Adiciona a classe de visibilidade
-          setTimeout(() => {
-            window.location.hash = '#contact';
-          }, 300); // Espera o menu fechar para depois navegar para a seção de contato
-        });
-      }
+      // Quando o link de Contato for clicado, fecha o menu e rola até a seção de contato
+      contactLink.addEventListener('click', (event) => {
+        event.preventDefault(); // Impede a navegação padrão
+        navMenu.classList.remove('active'); // Fecha o menu
+        window.location.hash = '#contact'; // Vai para a seção de contato
+      });
 
-      // Quando o link de "Home" for clicado, o menu hambúrguer é fechado
-      if (homeLink) {
-        homeLink.addEventListener('click', (event) => {
-          event.preventDefault();
-          // Esconde o menu hamburguer
-          navMenu.classList.remove('active');
-          // Faz a rolagem suave para o início
-          window.location.hash = '#home';
-        });
-      }
-
-      // Clica na logo para voltar ao menu principal e esconder o menu hambúrguer
-      if (logoLink) {
-        logoLink.addEventListener('click', () => {
-          navMenu.classList.remove('active');
-          window.location.hash = '#home'; // Redireciona para a página inicial
-        });
-      }
-
-      // Detectar quando a página de Contato for acessada via URL
-      if (window.location.hash === "#contact") {
-        navMenu.classList.remove('active');
-      }
+      // Quando a logo for clicada, volta para o topo da página
+      homeLogo.addEventListener('click', (event) => {
+        event.preventDefault();
+        navMenu.classList.remove('active'); // Fecha o menu
+        window.history.back(); // Volta para a página anterior
+      });
     });
   </script>
 </body>
