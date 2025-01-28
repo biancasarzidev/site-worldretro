@@ -48,6 +48,7 @@ header .logo img {
     width: 100px;
     height: auto;
     padding: 8px 0;
+    cursor: pointer;
 }
 
 /* Estilos do campo de pesquisa */
@@ -379,7 +380,7 @@ nav {
 .login-container {
     width: 100%;
     max-width: 400px;
-    background-color: #c615fc;
+    background-color: var(--primary-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -412,13 +413,13 @@ nav {
 }
   
 .login-form input:focus {
-    border-color: #6c63ff;
+    border-color: #0b0b0b;
     outline: none;
 }
   
 .login-button {
     padding: 10px 20px;
-    background-color: #6a0dad;
+    background-color: #363434;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -428,7 +429,7 @@ nav {
 }
   
 .login-button:hover {
-    background-color: #5a54e2;
+    background-color: #0cf700;
 }
   
 .cadastro-link {
@@ -440,7 +441,7 @@ nav {
 }
   
 .cadastro-link a {
-    color: #a100f7;
+    color: #ffffff;
     text-decoration: none;
 }
   
@@ -451,7 +452,7 @@ nav {
 
 /* Rodapé */
 footer {
-    background-color: #815986;
+    background-color: #9f6da5;
     color: var(--text-color);
     padding: 40px 20px;
     text-align: center;
