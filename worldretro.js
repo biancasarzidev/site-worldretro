@@ -58,9 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //login
+// Verifique se o formulário de login existe antes de adicionar o evento de clique
 const loginForm = document.getElementById('loginForm');
 
-  loginForm.addEventListener('submit', function(event) {
+if (loginForm) {
+  loginForm.addEventListener('submit', function (event) {
     event.preventDefault(); // Impede o envio padrão do formulário
 
     // Obtendo os valores dos campos
@@ -82,3 +84,21 @@ const loginForm = document.getElementById('loginForm');
       alert('Email ou senha incorretos.');
     }
   });
+}
+
+// Interação do botão de cadastro com a tela de login
+document.getElementById('btnCadastro').addEventListener('click', function (event) {
+  event.preventDefault(); // Impede o comportamento padrão do link
+  
+  const loginSection = document.getElementById('login');
+  
+  // Se a área de login já estiver visível, faz scroll até ela
+  if (loginSection.style.display === 'block') {
+    loginSection.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    loginSection.style.display = 'block'; // Exibe a área de login
+    loginSection.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+  

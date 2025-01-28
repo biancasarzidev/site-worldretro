@@ -545,6 +545,14 @@ footer {
         background-color: #5a009d;
     }
 
+    .login-section {
+        margin-top: 8px; /* Ajuste a margem superior do login */
+    }
+
+    .produtos {
+        margin-bottom: 8px;
+    }
+
     .produtos h2 {
         font-size: 18px;
         margin-top: 4px;
@@ -553,19 +561,20 @@ footer {
     }
 
     .produtos-lista {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajusta o tamanho mínimo para telas pequenas */
-        gap: 8px;
+        display: flex; /* Alinha os produtos na horizontal */
+        overflow-x: auto; /* Permite a rolagem horizontal */
+        gap: 16px; /* Espaço entre os cards */
+        padding-bottom: 16px; /* Espaço para a barra de rolagem */
+        scroll-snap-type: x mandatory; /* Impede que a rolagem seja aleatória, fazendo os produtos se "encaixarem" ao rolar */
     }
 
     .produto-card {
-        width: 45%; /* Deixa o card ocupar toda a largura disponível */
-        padding: 7px;
-        margin: 7px;
+        flex: 0 0 90%; /* No celular, ocupa 90% da largura */
     }
 
     .produto-card img {
         border-radius: 5px;
-        width: 80px; /* Reduz o tamanho das imagens */
+        width: 100%; /* Faz a imagem ocupar toda a largura do card */
         height: auto;
     }
 
@@ -649,6 +658,14 @@ footer {
 
     .nav-menu.active {
         display: flex;
+    }
+
+    .produtos-lista {
+        flex-wrap: nowrap; /* Garante que não haja quebra de linha */
+    }
+    
+    .produto-card {
+        flex: 0 0 45%; /* Ocupa 45% da largura */
     }
 
 }
