@@ -248,6 +248,12 @@ nav {
     text-align: center;
 }
 
+.produtos-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 .produtos h2 {
     font-size: 25px;
     margin-top: 10px;
@@ -257,9 +263,9 @@ nav {
 
 .produtos-lista {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+    overflow: hidden;  /* Esconde a rolagem */
+    width: 100%; /* Define a largura máxima do container */
 }
 
 .produto-card {
@@ -267,10 +273,46 @@ nav {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 250px;
     text-align: center;
-    padding: 15px;
     transition: var(--transition);
+    width: 45%;  /* Ajuste o tamanho conforme necessário */
+    padding: 7px;
+    margin: 0; /* Remover a margem para os cards ficarem alinhados no scroll */
+}
+
+.scroll-left, .scroll-right {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: #333;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-left {
+    left: 0;
+}
+
+.scroll-right {
+    right: 0;
+}
+
+.scroll-left:hover, .scroll-right:hover {
+    color: #6c63ff; /* Mudar a cor na interação */
+}
+
+
+/* Adiciona um estilo de rolagem (opcional) */
+.produtos-lista::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de rolagem */
+}
+
+.produtos-lista::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
 }
 
 .produto-card:hover {
@@ -562,10 +604,16 @@ footer {
 
     .produtos-lista {
         display: flex; /* Alinha os produtos na horizontal */
-        overflow-x: auto; /* Permite a rolagem horizontal */
+        overflow-x: scroll; /* Permite a rolagem horizontal */
         gap: 16px; /* Espaço entre os cards */
         padding-bottom: 16px; /* Espaço para a barra de rolagem */
         scroll-snap-type: x mandatory; /* Impede que a rolagem seja aleatória, fazendo os produtos se "encaixarem" ao rolar */
+        -ms-overflow-style: none;  /* Desativa a barra de rolagem no Internet Explorer */
+        scrollbar-width: none; /* Remove a barra de rolagem no Firefox */
+        /* Esconde a barra de rolagem para todos os navegadores modernos */
+        ::-webkit-scrollbar {
+            display: none; 
+        }
     }
 
     .produto-card {
@@ -661,7 +709,7 @@ footer {
     }
 
     .produtos-lista {
-        flex-wrap: nowrap; /* Garante que não haja quebra de linha */
+        overflow-x: auto;
     }
     
     .produto-card {

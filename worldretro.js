@@ -101,4 +101,27 @@ document.getElementById('btnCadastro').addEventListener('click', function (event
   }
 });
 
+//seta dos produtos
+// Selecionando os elementos
+const scrollLeft = document.querySelector('.scroll-left');
+const scrollRight = document.querySelector('.scroll-right');
+const produtosLista = document.querySelector('.produtos-lista');
+
+// Função para rolar para a esquerda
+scrollLeft.addEventListener('click', () => {
+    produtosLista.scrollBy({
+        left: -200, // Mover 200px para a esquerda
+        behavior: 'smooth'
+    });
+});
+
+// Função para rolar para a direita
+scrollRight.addEventListener('click', () => {
+    produtosLista.scrollBy({
+        left: 200, // Mover 200px para a direita
+        behavior: 'smooth'
+    });
+});
+
+
   
