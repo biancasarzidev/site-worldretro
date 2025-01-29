@@ -57,76 +57,77 @@ header .logo img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    margin: 10px 0;
-
-    .search input {
-        width: 20%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-    }
-
-    .search button {
-        background-color: blueviolet;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        border-radius: 4px;
-        margin-left: 5px;
-    }
-
-    .search button i {
-        color: white;
-        font-size: 16px;
-    }
+    width: 100%; /* Ajuste para garantir que ocupe toda a largura disponível */
+    margin: 15px 0;
 }
+
+.search input {
+    width: 30%; /* Ajuste o tamanho do input para ficar proporcional */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.search button {
+    background-color: blueviolet;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px; /* Um pouco mais de espaço entre o botão e o input */
+}
+
+.search button i {
+    color: white;
+    font-size: 16px;
+}
+
 
 /*menu*/
 nav {
     width: 100%;
 
+}
 
-    .nav-menu {
-        background-color: blueviolet;
-        padding: 10px;
-        margin-top: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        width: 100%;
-        z-index: 999;
-        flex-wrap: wrap;
-    }
+.nav-menu {
+    background-color: blueviolet;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    z-index: 999;
+    flex-wrap: wrap;
+}
 
-    .nav-menu a {
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-        letter-spacing: 1.5px;
-        transition: var(--transition);
-    }
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    transition: var(--transition);
+}
 
-    .nav-menu a:hover {
-        display: inline-block;
-        transform: scale(1.07);
-        transition: .2s;
-        letter-spacing: 2px;
-    }
+.nav-menu a:hover {
+    display: inline-block;
+    transform: scale(1.07);
+    transition: .2s;
+    letter-spacing: 2px;
+}
 
-    .hamburger-menu {
-        display: none;
-    }
+.hamburger-menu {
+    display: none;
+}
 
-    .actions {
-        position: absolute;
-        top: 30px;
-        right: 20px;
-        display: flex;
-        gap: 5px;
-    }
+.actions {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    display: flex;
+    gap: 5px;
 }
 
 .cadastro, .cart {
@@ -142,16 +143,16 @@ nav {
     align-items: center;
     width: 50px;
     height: 50px;
+}
 
-    .cadastro a, .cart a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-size: 24px;
-    }
+.cadastro a, .cart a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 24px;
+}
 
-    .cadastro a:hover, .cart a:hover {
-        transform: scale(1.07);
-    }
+.cadastro a:hover, .cart a:hover {
+    transform: scale(1.07);
 }
 
 /* Contêiner do banner */
@@ -159,214 +160,214 @@ nav {
     position: relative;
     width: 100%;
     overflow: hidden;
+}
   
-    /* Estilo para cada banner */
-    .banner {
-        display: none; 
-        width: 100%;
-    }
-    
-    .banner img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
-    
-    /* Apenas o banner ativo será exibido */
-    .banner.active {
-        display: block;
-    }
-    
-    /* Estilo das setas de navegação */
-    .arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 30px;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 50%;
-        z-index: 999;
-    }
-    
-    .arrow.left {
-        left: 10px;
-    }
-    
-    .arrow.right {
-        right: 10px;
-    }
+/* Estilo para cada banner */
+.banner {
+    display: none; 
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Apenas o banner ativo será exibido */
+.banner.active {
+    display: block;
+}
+
+/* Estilo das setas de navegação */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 999;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
 }
 
 .voltar-menu {
     margin: 8px 0;
     text-align: left;
-  
-    .btn-voltar {
-        display: inline-block;
-        font-size: 14px;
-        margin-left: 10px;
-        padding: 8px 16px;
-        background-color: blueviolet;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-    
-    .btn-voltar:hover {
-        background-color: darkviolet;
-    }
+}
+
+.btn-voltar {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 8px 16px;
+    background-color: blueviolet;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background-color: darkviolet;
 }
   
 /* Categorias */
 .categorias {
     margin: 20px 0;
     text-align: center;
-
-    .cate ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .cate button {
-        padding: 10px 20px;
-        font-size: 14px;
-        background-color: var(--primary-color);
-        color: var(--text-color);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: var(--transition);
-    }
-
-    .cate button:hover {
-        background-color: var(--secondary-color);
-        transform: scale(1.07);
-    }
 }
+
+.cate ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cate button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cate button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.07);
+}
+
 
 /* Produtos */
 .produtos {
     margin: 40px 0;
     text-align: center;
+}
+.produtos-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 
-    .produtos-container {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
+.produtos h2 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #6a0dad99;
+}
 
-    .produtos h2 {
-        font-size: 25px;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        background-color: #8159868c;
-    }
+.produtos-lista {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;  /* Esconde a rolagem */
+    width: 100%; /* Define a largura máxima do container */
+}
 
-    .produtos-lista {
-        display: flex;
-        gap: 10px;
-        overflow: hidden;  /* Esconde a rolagem */
-        width: 100%; /* Define a largura máxima do container */
-    }
+.produto-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: var(--transition);
+    width: 45%;  /* Ajuste o tamanho conforme necessário */
+    padding: 7px;
+    margin: 0; /* Remover a margem para os cards ficarem alinhados no scroll */
+}
 
-    .produto-card {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        text-align: center;
-        transition: var(--transition);
-        width: 45%;  /* Ajuste o tamanho conforme necessário */
-        padding: 7px;
-        margin: 0; /* Remover a margem para os cards ficarem alinhados no scroll */
-    }
+.scroll-left, .scroll-right {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: #333;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+}
 
-    .scroll-left, .scroll-right {
-        background-color: transparent;
-        border: none;
-        font-size: 30px;
-        color: #333;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        z-index: 10;
-    }
+.scroll-left {
+    left: 0;
+}
 
-    .scroll-left {
-        left: 0;
-    }
+.scroll-right {
+    right: 0;
+}
 
-    .scroll-right {
-        right: 0;
-    }
+.scroll-left:hover, .scroll-right:hover {
+    color: #6c63ff; /* Mudar a cor na interação */
+}
 
-    .scroll-left:hover, .scroll-right:hover {
-        color: #6c63ff; /* Mudar a cor na interação */
-    }
+/* Adiciona um estilo de rolagem (opcional) */
+.produtos-lista::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de rolagem */
+}
 
-    /* Adiciona um estilo de rolagem (opcional) */
-    .produtos-lista::-webkit-scrollbar {
-        height: 8px; /* Altura da barra de rolagem */
-    }
+.produtos-lista::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
 
-    .produtos-lista::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 4px;
-    }
+.produto-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
 
-    .produto-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
+.produto-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
-    .produto-card img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
+.produto-card h3 {
+    color: rgb(97, 97, 97);
+    font-size: 18px;
+    margin: 10px 0;
+}
 
-    .produto-card h3 {
-        color: rgb(97, 97, 97);
-        font-size: 18px;
-        margin: 10px 0;
-    }
+.produto-card .preco {
+    font-size: 17px;
+    font-weight: bold;
+    color: #3ff153;
+    margin: 10px 0;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.388);
+}
 
-    .produto-card .preco {
-        font-size: 17px;
-        font-weight: bold;
-        color: #3ff153;
-        margin: 10px 0;
-        text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.388);
-    }
+.produto-card .desconto {
+    font-size: 13px;
+    font-weight: bold;
+    color: #737573;
+    margin: 10px 0;
+}
 
-    .produto-card .desconto {
-        font-size: 13px;
-        font-weight: bold;
-        color: #737573;
-        margin: 10px 0;
-    }
+.produto-card button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: var(--transition);
+}
 
-    .produto-card button {
-        background-color: var(--primary-color);
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: var(--transition);
-    }
-
-    .produto-card button:hover {
-        background-color: var(--secondary-color);
-    }
+.produto-card button:hover {
+    background-color: var(--secondary-color);
 }
 
 /* Estilo da área de login */
@@ -375,132 +376,133 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 20px 20px;
     background-color: #000000;
-
-  
-    .login-container {
-        width: 100%;
-        max-width: 400px;
-        background-color: var(--primary-color);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    .login-container h2 {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 24px;
-        color: #ffffff;
-    }
-    
-    .login-form {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .login-form label {
-        margin-bottom: 5px;
-        font-size: 14px;
-        color: #ffffff;
-    }
-    
-    .login-form input {
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-    
-    .login-form input:focus {
-        border-color: #0b0b0b;
-        outline: none;
-    }
-    
-    .login-button {
-        padding: 10px 20px;
-        background-color: #363434;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    
-    .login-button:hover {
-        background-color: #0cf700;
-    }
-    
-    .cadastro-link {
-        text-align: center;
-        margin-top: 15px;
-        font-size: 13px;
-        font-weight: bold;
-        font-style: italic;
-    }
-    
-    .cadastro-link a {
-        color: #ffffff;
-        text-decoration: none;
-    }
-    
-    .cadastro-link a:hover {
-        text-decoration: underline;
-    }
 }
+  
+.login-container {
+    width: 100%;
+    max-width: 480px;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.login-form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-form input:focus {
+    border-color: #0b0b0b;
+    outline: none;
+}
+
+.login-button {
+    padding: 10px 20px;
+    background-color: #363434;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #0cf700;
+}
+
+.cadastro-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.cadastro-link a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.cadastro-link a:hover {
+    text-decoration: underline;
+}
+
 
 /* Rodapé */
 footer {
-    background-color: #a216b1;
+    background-color: #59009dbc;
     color: var(--text-color);
     padding: 40px 20px;
     text-align: center;
-
-
-    .footer-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 1100px;
-        margin: 0 auto;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .footer-info,
-    .footer-social {
-        flex: 1; 
-        min-width: 300px;
-    }
-
-    .footer-info {
-        text-align: left;
-        font-style: italic;
-    }
-
-    .footer-social {
-        text-align: right;
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 20px;
-    }
-
-    .social-icon {
-        font-size: 30px;
-        color: var(--text-color);
-        transition: var(--transition);
-    }
-
-    .social-icon:hover {
-        transform: scale(1.1);
-    }
 }
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-info,
+.footer-social {
+    flex: 1; 
+    min-width: 300px;
+}
+
+.footer-info {
+    text-align: left;
+    font-style: italic;
+}
+
+.footer-social {
+    text-align: right;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.social-icon {
+    font-size: 30px;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
 
 @media (max-width: 430px) {
 
