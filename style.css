@@ -496,39 +496,40 @@ nav {
 /* Estilo para o formulário de cálculo de frete */
 .frete {
     text-align: center; /* Centraliza o conteúdo */
-    margin-top: 20px; /* Espaço superior */
-    padding: 20px; /* Espaçamento interno */
+    margin-top: 10px; /* Espaço superior */
+    padding: 15px; /* Aumenta o espaçamento interno */
     background-color: #f9f9f9; /* Cor de fundo */
-    border-radius: 10px; /* Borda arredondada */
+    border-radius: 8px; /* Borda arredondada */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 95%; /* Aumentei a largura para 95% da tela */
-    max-width: 800px; /* Limite máximo de largura aumentado */
+    width: 100%; /* Largura total */
+    max-width: 900px; /* Largura máxima */
     margin-left: auto; /* Centraliza horizontalmente */
     margin-right: auto; /* Centraliza horizontalmente */
+    display: flex;
+    justify-content: center; /* Centraliza os itens na horizontal */
+    align-items: center; /* Alinha verticalmente */
+    height: 80px; /* Altura ajustada */
 }
 
-/* Estilo para o campo de CEP */
+/* Ajuste do campo de input */
 .frete input {
-    padding: 12px; /* Preenche o campo */
-    width: 100%; /* Faz com que o campo ocupe toda a largura disponível */
-    margin-top: 10px; /* Espaço acima */
+    padding: 10px; /* Preenche o campo */
+    width: 70%; /* Tamanho mais largo */
     border: 1px solid #ccc; /* Borda suave */
     border-radius: 5px; /* Borda arredondada */
     font-size: 16px; /* Tamanho da fonte */
+    margin-right: 10px; /* Espaço entre o input e o botão */
 }
 
-/* Estilo para o botão de calcular frete */
+/* Ajuste do botão */
 .frete button {
     background-color: var(--primary-color); /* Cor de fundo */
     color: white; /* Cor do texto */
     border: none;
-    padding: 12px 25px; /* Aumentei o padding para o botão */
+    padding: 10px 20px; /* Espaçamento interno */
     border-radius: 5px; /* Borda arredondada */
     font-size: 16px; /* Tamanho da fonte */
     cursor: pointer; /* Cursor pointer */
-    margin-top: 15px; /* Espaço acima */
-    transition: background-color 0.3s; /* Transição suave */
-    width: 100%; /* Faz com que o botão ocupe toda a largura disponível */
 }
 
 /* Efeito de hover para o botão de calcular frete */
@@ -541,6 +542,27 @@ nav {
     font-size: 18px; /* Tamanho maior para o resultado */
     color: #27c038; /* Cor verde para o resultado */
     margin-top: 15px; /* Espaço superior */
+}
+
+
+
+/* Ajustes para o botão de "Adicionar ao Carrinho" */
+#addToCart {
+    padding: 8px 15px; /* Menor padding */
+    background-color: var(--primary-color); /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Menor tamanho de fonte */
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s; /* Transição suave */
+    display: inline-block; /* Garante que o botão seja exibido na mesma linha */
+}
+
+/* Efeito de hover para o botão de "Adicionar ao Carrinho" */
+#addToCart:hover {
+    background-color: var(--secondary-color); /* Cor de fundo no hover */
 }
 
 /* Estilo da área de login */
