@@ -140,6 +140,33 @@
               <p class="desconto">(até 10 X R$ 13,05)</p>
               <button>Comprar Agora</button>
         </div>
+
+        <!-- Modal de Informações do Produto -->
+<div class="modal" id="produtoModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modalTitle">Nome do Produto</h2>
+    <div class="modal-gallery">
+      <img id="modalImage" src="" alt="Imagem do produto">
+      <div id="modalVideos" class="modal-videos">
+        <!-- Links para vídeos -->
+      </div>
+    </div>
+    <p id="modalDescription">Descrição do produto aqui.</p>
+    <p><strong>Preço:</strong> R$ <span id="modalPrice"></span></p>
+    
+    <!-- Calcular Frete -->
+    <div class="frete">
+      <label for="cep">Calcule o frete:</label>
+      <input type="text" id="cep" placeholder="Digite seu CEP">
+      <button id="calcularFrete">Calcular</button>
+      <p id="freteResultado"></p>
+    </div>
+
+    <button id="addToCart">Adicionar ao Carrinho</button>
+  </div>
+</div>
+
     </div>
   </section>
 </main>
