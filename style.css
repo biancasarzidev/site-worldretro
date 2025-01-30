@@ -284,9 +284,9 @@ nav {
     overflow: hidden;
     text-align: center;
     transition: var(--transition);
-    width: 45%;  /* Ajuste o tamanho conforme necessário */
+    width: 220px;  /* Ajuste o tamanho conforme necessário */
     padding: 7px;
-    margin: 0; /* Remover a margem para os cards ficarem alinhados no scroll */
+    margin: 10px; /* Remover a margem para os cards ficarem alinhados no scroll */
 }
 
 .scroll-left, .scroll-right {
@@ -329,9 +329,12 @@ nav {
 }
 
 .produto-card img {
-    width: 100%;
-    height: auto;
+    width: 80%; /* Reduz o tamanho da imagem */
+    max-width: 200px; /* Define um limite máximo para evitar imagens muito grandes */
+    height: auto; /* Mantém a proporção original */
     border-radius: 8px;
+    display: block; /* Garante que a imagem não seja afetada por espaçamentos extras */
+    margin: 0 auto; /* Centraliza a imagem */
 }
 
 .produto-card h3 {
@@ -343,16 +346,16 @@ nav {
 .produto-card .preco {
     font-size: 17px;
     font-weight: bold;
-    color: #3ff153;
+    color: #27c038;
     margin: 10px 0;
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.388);
 }
 
 .produto-card .desconto {
     font-size: 13px;
     font-weight: bold;
-    color: #737573;
+    color: #c70c0c;
     margin: 10px 0;
+    font-style: italic;
 }
 
 .produto-card button {
@@ -381,6 +384,13 @@ nav {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modalImage {
+    max-width: 80%; /* Diminui a largura da imagem */
+    max-height: 300px; /* Define um limite menor para altura */
+    object-fit: contain; /* Garante que a imagem não fique distorcida */
+    margin-bottom: 20px; /* Espaçamento entre a imagem e os outros elementos */
 }
 
 .modal-content {
@@ -417,17 +427,28 @@ nav {
 
 /* Estilo para o preço no modal */
 #modalPrice {
-    color: rgb(0, 255, 0); /* Cor do preço */
+    color: rgb(34, 215, 34); /* Cor do preço */
     font-weight: bold; /* Negrito */
-    font-size: 20px; /* Ajuste do tamanho da fonte */
-    text-align: center; /* Garante que o preço ficará centralizado */
+    font-size: 28px; /* Tamanho maior para destaque */
+    text-align: center; /* Centraliza o texto */
+    display: block; /* Garante que o elemento ocupe a largura total */
+    margin: 10px auto; /* Centraliza na horizontal */
+}
+
+/* Centralizar a seção do preço */
+.price-container {
+    text-align: center; /* Garante que o conteúdo dentro fique centralizado */
+    width: 100%; /* Ocupa toda a largura do modal */
+    margin-top: 10px; /* Espaçamento do restante do conteúdo */
 }
 
 /* Estilo para o parcelamento */
 #parcelamento {
     font-size: 16px;
-    color: #333;
-    margin-top: 5px;
+    color: #c10d0d;
+    margin-top: 3px;
+    font-style: italic;
+    font-weight: bold;
 }
 
 /* Estilo para a descrição do produto no modal */
@@ -860,7 +881,7 @@ footer {
 /* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
     .modal-content {
-        width: 90%;
+        width: 80%;
     }
 
     #cep {
@@ -870,6 +891,11 @@ footer {
 
     #calcularFrete {
         width: 100%;
+    }
+
+    #modalImage {
+        max-width: 85%; /* Reduz a largura da imagem */
+        max-height: 250px; /* Define um limite menor para altura */
     }
 }
 
