@@ -493,6 +493,55 @@ nav {
     background-color: #0056b3;
 }
 
+/* Estilo para o formulário de cálculo de frete */
+.frete {
+    text-align: center; /* Centraliza o conteúdo */
+    margin-top: 20px; /* Espaço superior */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #f9f9f9; /* Cor de fundo */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 95%; /* Aumentei a largura para 95% da tela */
+    max-width: 800px; /* Limite máximo de largura aumentado */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo para o campo de CEP */
+.frete input {
+    padding: 12px; /* Preenche o campo */
+    width: 100%; /* Faz com que o campo ocupe toda a largura disponível */
+    margin-top: 10px; /* Espaço acima */
+    border: 1px solid #ccc; /* Borda suave */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Estilo para o botão de calcular frete */
+.frete button {
+    background-color: var(--primary-color); /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none;
+    padding: 12px 25px; /* Aumentei o padding para o botão */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor pointer */
+    margin-top: 15px; /* Espaço acima */
+    transition: background-color 0.3s; /* Transição suave */
+    width: 100%; /* Faz com que o botão ocupe toda a largura disponível */
+}
+
+/* Efeito de hover para o botão de calcular frete */
+.frete button:hover {
+    background-color: var(--secondary-color); /* Cor de fundo no hover */
+}
+
+/* Estilo para mostrar o resultado do frete */
+#freteResultado {
+    font-size: 18px; /* Tamanho maior para o resultado */
+    color: #27c038; /* Cor verde para o resultado */
+    margin-top: 15px; /* Espaço superior */
+}
 
 /* Estilo da área de login */
 
