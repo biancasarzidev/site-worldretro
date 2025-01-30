@@ -337,6 +337,17 @@ nav {
     margin: 0 auto; /* Centraliza a imagem */
 }
 
+/* Estilo para o parcelamento */
+.produto-card .parcelamento {
+    font-size: 14px;
+    color: #c10d0d;
+    margin-top: 3px;
+    font-style: italic;
+    font-weight: bold;
+    visibility: visible; /* Garante que o parcelamento esteja visível */
+    margin-bottom: 15px; /* Espaçamento antes do botão */
+}
+
 .produto-card h3 {
     color: rgb(97, 97, 97);
     font-size: 18px;
