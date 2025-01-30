@@ -286,7 +286,7 @@ nav {
     transition: var(--transition);
     width: 220px;  /* Ajuste o tamanho conforme necessário */
     padding: 7px;
-    margin: 10px; /* Remover a margem para os cards ficarem alinhados no scroll */
+    margin: 4px; /* Remover a margem para os cards ficarem alinhados no scroll */
 }
 
 .scroll-left, .scroll-right {
