@@ -24,6 +24,43 @@
 </header>
 
 <main>
+  <section class="produtos">
+    <h2>Produtos</h2>
+
+    <!-- Produto 1 -->
+    <div class="produto">
+      <img src="imagens/alien.png" alt="Alien Trilogy">
+      <h3>Alien Trilogy</h3>
+      <p>Preço: R$ 55,00</p>
+      <button onclick="addToCart({name: 'Alien Trilogy', price: 'R$ 55,00', image: 'imagens/alien.png'})">Adicionar ao Carrinho</button>
+    </div>
+
+    <!-- Produto 2 -->
+    <div class="produto">
+      <img src="imagens/groove.png" alt="Bust a Groove II">
+      <h3>Bust a Groove II</h3>
+      <p>Preço: R$ 58,00</p>
+      <button onclick="addToCart({name: 'Bust a Groove II', price: 'R$ 58,00', image: 'imagens/groove.png'})">Adicionar ao Carrinho</button>
+    </div>
+
+    <!-- Produto 3 -->
+    <div class="produto">
+      <img src="imagens/street.png" alt="Super Street Fighter II Turbo">
+      <h3>Super Street Fighter II Turbo</h3>
+      <p>Preço: R$ 110,00</p>
+      <button onclick="addToCart({name: 'Super Street Fighter II Turbo', price: 'R$ 110,00', image: 'imagens/street.png'})">Adicionar ao Carrinho</button>
+    </div>
+
+    <!-- Produto 4 -->
+    <div class="produto">
+      <img src="imagens/chase.png" alt="Chase HQ. Plus">
+      <h3>Chase HQ. Plus</h3>
+      <p>Preço: R$ 58,00</p>
+      <button onclick="addToCart({name: 'Chase HQ. Plus', price: 'R$ 58,00', image: 'imagens/chase.png'})">Adicionar ao Carrinho</button>
+    </div>
+
+  </section>
+
   <section class="carrinho">
     <h2>Seu Carrinho</h2>
     <div id="cartItems"></div> <!-- Aqui os itens do carrinho serão exibidos -->
@@ -38,6 +75,21 @@
 </main>
 
 <script>
+// Função para adicionar ao carrinho
+function addToCart(product) {
+  // Recuperando o carrinho atual ou criando um novo
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Adiciona o produto ao carrinho
+  cart.push(product);
+
+  // Salva o carrinho atualizado no localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Atualiza a tela do carrinho
+  updateCart();
+}
+
 // Recuperando o carrinho do localStorage
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -53,14 +105,12 @@ function updateCart() {
   // Adiciona os produtos ao carrinho
   cart.forEach((item, index) => {
     const itemDiv = document.createElement('div');
-    itemDiv.classList.add('produto-carrinho');
+    itemDiv.classList.add('cart-item');
     itemDiv.innerHTML = `
-      <div class="produto-imagem">
-        <img src="${item.image}" alt="${item.name}">
-      </div>
-      <div class="produto-info">
+      <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+      <div>
         <p><strong>${item.name}</strong></p>
-        <p>Preço: R$ ${item.price}</p>
+        <p>Preço: ${item.price}</p>
         <button onclick="removeFromCart(${index})">Remover</button>
       </div>
     `;
