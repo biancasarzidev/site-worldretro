@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <title>Carrinho - World Retrô</title>
+</head>
+<body>
+
+<header>
+  <div class="interface">
+    <div class="logo">
+      <img src="imagens/logo.png" alt="Logo World Retrô">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="carrinho.html">Carrinho</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="carrinho">
+    <h2>Seu Carrinho</h2>
+    <div id="cartItems"></div> <!-- Aqui os itens do carrinho serão exibidos -->
+    <div id="cartTotal">
+      <h3>Total: R$ <span id="totalPrice">0,00</span></h3>
+      <button onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+  </section>
+</main>
+
+<script>
+// Recuperando o carrinho do localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Função para atualizar a tela do carrinho
+function updateCart() {
+  const cartItemsDiv = document.getElementById('cartItems');
+  const totalPriceElement = document.getElementById('totalPrice');
+
+  // Limpa os itens atuais
+  cartItemsDiv.innerHTML = '';
+
+  // Adiciona os produtos ao carrinho
+  cart.forEach((item, index) => {
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('cart-item');
+    itemDiv.innerHTML = `
+      <p><strong>${item.name}</strong></p>
+      <p>Preço: R$ ${item.price}</p>
+      <button onclick="removeFromCart(${index})">Remover</button>
+    `;
+    cartItemsDiv.appendChild(itemDiv);
+  });
+
+  // Atualiza o total
+  const total = cart.reduce((sum, item) => sum + parseFloat(item.price.replace('R$', '').replace(',', '.')), 0);
+  totalPriceElement.textContent = total.toFixed(2);
+}
+
+// Função para remover um item do carrinho
+function removeFromCart(index) {
+  cart.splice(index, 1);  // Remove o item do carrinho
+  localStorage.setItem('cart', JSON.stringify(cart));  // Salva novamente no localStorage
+  updateCart();  // Atualiza a tela
+}
+
+// Função para finalizar a compra (apenas exibe uma mensagem)
+function finalizarCompra() {
+  alert('Compra finalizada com sucesso!');
+  cart = [];  // Limpa o carrinho
+  localStorage.setItem('cart', JSON.stringify(cart));  // Atualiza o carrinho no localStorage
+  updateCart();  // Atualiza a tela
+}
+
+// Inicializa o carrinho
+updateCart();
+</script>
+
+</body>
+</html>

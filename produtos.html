@@ -44,8 +44,8 @@
         <a href="#cadastro"><i class="fa fa-user"></i></a>
       </div>
       <div class="cart">
-        <a href="#">
-          <i class="fas fa-shopping-cart"></i>
+        <a href="carrinho.html" id="cartLink">
+          <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
         </a>
       </div>
     </div>
@@ -75,40 +75,37 @@
     <div class="produtos-lista">
 
       <!-- Exemplo de Produto -->
-      <div class="produto-card" onclick="openModal('Alien Trilogy', 'imagens/alien.png', 'R$ 55,00', 'Alien Trilogy para Sega Saturno - Necessário Pseudo Saturn. Outros desbloqueios podem ou não funcionar, mas o Pseudo é certeza, cuidado com atualizações novas.')">
+      <div class="produto-card" onclick="openModal('Alien Trilogy', 'imagens/alien.png', 'R$ 55,00', 'Alien Trilogy para Sega Saturno. Necessário Pseudo Saturn. Outros desbloqueios podem ou não funcionar, mas o Pseudo é certeza, cuidado com atualizações novas.')">
         <img src="imagens/alien.png" alt="Capa do jogo Alien Trilogy">
         <h3>Alien Trilogy</h3>
         <p class="preco">R$ 55,00</p>
         <div class="parcelamento">(Até 6x de R$ 10,42)</div>
-        <button>Comprar Agora</button>
+        <button onclick="addToCart('Alien Trilogy', 'R$ 55,00')">Comprar Agora</button>
       </div>
 
-      <div class="produto-card" onclick="openModal('Bust a Groove II', 'imagens/groove.png', 'R$ 58,00', 'Bust a Groove II para PlayStation. Jogo de dança com músicas cativantes e jogabilidade divertida.')">
+      <div class="produto-card" onclick="openModal('Bust a Groove II', 'imagens/groove.png', 'R$ 58,00', 'Bust a Groove II é um jogo de dança para PS1 com jogabilidade divertida e personagens cativantes.')">
         <img src="imagens/groove.png" alt="Capa do jogo Bust a Groove II">
         <h3>Bust a Groove II</h3>
         <p class="preco">R$ 58,00</p>
         <div class="parcelamento">(Até 6x de R$ 10,99)</div>
-        <button>Comprar Agora</button>
+        <button onclick="addToCart('Bust a Groove II', 'R$ 58,00')">Comprar Agora</button>
       </div>
 
-      <div class="produto-card" onclick="openModal('Super Street Fighter II Turbo', 'imagens/street.png', 'R$ 110,00', 'Super Street Fighter II Turbo para Arcade e consoles. Jogo clássico de luta com personagens icônicos e jogabilidade dinâmica.')">
+      <div class="produto-card" onclick="openModal('Super Street Fighter II Turbo', 'imagens/street.png', 'R$ 110,00', 'Super Street Fighter II Turbo traz uma jogabilidade clássica com novos personagens e modos.')">
         <img src="imagens/street.png" alt="Street">
         <h3>Super Street Fighter II Turbo</h3>
         <p class="preco">R$ 110,00</p>
         <div class="parcelamento">(Até 10x de R$ 13,05)</div>
-        <button>Comprar Agora</button>
+        <button onclick="addToCart('Super Street Fighter II Turbo', 'R$ 110,00')">Comprar Agora</button>
       </div>
 
-      <div class="produto-card" onclick="openModal('Chase HQ. Plus', 'imagens/chase.png', 'R$ 58,00', 'Chase HQ. Plus para Arcade e consoles. Um clássico jogo de corrida e perseguição com muita ação e adrenalina.')">
+      <div class="produto-card" onclick="openModal('Chase HQ. Plus', 'imagens/chase.png', 'R$ 58,00', 'Chase HQ. Plus oferece um estilo de corrida e perseguição único para os fãs de ação e velocidade.')">
         <img src="imagens/chase.png" alt="Chase">
         <h3>Chase HQ. Plus</h3>
         <p class="preco">R$ 58,00</p>
         <div class="parcelamento">(Até 6x de R$ 10,99)</div>
-        <button>Comprar Agora</button>
+        <button onclick="addToCart('Chase HQ. Plus', 'R$ 58,00')">Comprar Agora</button>
       </div>
-    
-      <!-- Outros Produtos -->
-      <!-- Adicione mais produtos aqui com o mesmo formato, modificando conforme necessário -->
 
     </div>
   </section>
@@ -125,29 +122,26 @@
         <!-- Links para vídeos -->
       </div>
     </div>
-    <p id="modalDescription"><strong>
-      Alien Trilogy para Sega Saturno<br>
-        Necessário Pseudo Saturn.
-    </strong> Outros desbloqueios podem ou não funcionar, mas o Pseudo é certeza, cuidado com atualizações novas.
-    </p>      
+    <p id="modalDescription"><strong>Descrição do Produto</strong></p>      
     <div style="text-align: center;">
       <p><strong>Preço:</strong> R$ <span id="modalPrice">55,00</span></p>
       <p id="parcelamento">(Até 6x de R$ 10,42)</p>
     </div>
     
-   <!-- Calcular Frete -->
-<div class="produto-card">
-  <div class="frete">
-    <label for="cep">Calcule o frete:</label>
-    <input type="text" id="cep" placeholder="Digite seu CEP">
-    <button id="calcularFrete" onclick="calcularFrete()">Calcular frete</button>
-    <p id="freteResultado"></p>
+    <!-- Calcular Frete -->
+    <div class="produto-card">
+      <div class="frete">
+        <label for="cep">Calcule o frete:</label>
+        <input type="text" id="cep" placeholder="Digite seu CEP">
+        <button id="calcularFrete" onclick="calcularFrete()">Calcular frete</button>
+        <p id="freteResultado"></p>
+      </div>
+
+      <!-- Botão Adicionar ao Carrinho -->
+      <button id="addToCart" onclick="addToCart('Produto Nome', 'R$ 55,00')">Adicionar ao Carrinho</button>
+    </div>
   </div>
-
-  <!-- Botão Adicionar ao Carrinho -->
-  <button id="addToCart">Adicionar ao Carrinho</button>
 </div>
-
 
 <script src="worldretro.js"></script>
 
@@ -179,21 +173,12 @@
 </footer>
 
 <script>
-// Abrir o modal com as informações do produto
+// Função para abrir o modal com os dados do produto
 function openModal(title, image, price, description) {
   document.getElementById('produtoModal').style.display = 'block';
   document.getElementById('modalTitle').textContent = title;
   document.getElementById('modalImage').src = image;
-
-  // Atribuindo o preço corretamente ao modal
-  const modalPrice = document.getElementById('modalPrice');
-  if (modalPrice) {
-    modalPrice.textContent = price;
-    console.log("Preço atribuído:", price); // Depuração
-  } else {
-    console.error("Elemento 'modalPrice' não encontrado.");
-  }
-
+  document.getElementById('modalPrice').textContent = price;
   document.getElementById('modalDescription').innerHTML = description;
 }
 
@@ -211,6 +196,28 @@ function calcularFrete() {
   } else {
     document.getElementById('freteResultado').textContent = 'Por favor, insira um CEP válido.';
   }
+}
+
+// Função para adicionar um produto ao carrinho
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const product = { name, price };
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Atualizar contador de itens no carrinho
+  updateCartCount();
+}
+
+// Função para atualizar o contador de itens no carrinho
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cartCount').textContent = cart.length;
+}
+
+// Atualiza o contador quando a página carrega
+window.onload = function() {
+  updateCartCount();
 }
 </script>
 

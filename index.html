@@ -23,53 +23,51 @@
     </div>
 
     <!-- Botão Hamburguer -->
-      <div class="hamburger-menu">
-        <i class="fas fa-bars" aria-label="Abrir menu"></i>
-      </div>
+    <div class="hamburger-menu">
+      <i class="fas fa-bars" aria-label="Abrir menu"></i>
+    </div>
 
     <!-- Campo de pesquisa -->
     <div class="search">
-        <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar produtos">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </div>
-
-    <!-- Menu de navegação -->
-      <nav>
-        <div class="nav-menu">
-          <a href="#home" class="menu-link">Home</a>
-          <a href="#about">Lançamentos</a>
-          <a href="produtos.html">Produtos</a>
-          <a href="contato.html">Contato</a>
-        </div>
-      </nav>
-
-    <!-- Ações: Cadastro e Carrinho -->
-      <div class="actions">
-        <div class="cadastro">
-          <a href="#cadastro" id="btnCadastro"><i class="fa fa-user"></i></a>
-        </div>
-        <div class="cart">
-            <a href="#">
-                <i class="fas fa-shopping-cart"></i>
-            </a>
-        </div>
-        
-      </div>
+      <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar produtos">
+      <button type="submit"><i class="fas fa-search"></i></button>
     </div>
 
-<!-- Banners -->
-    <div class="banner-container">
-        <div class="banner active">
-          <img src="imagens/banner1.jpeg" alt="Banner 1">
-        </div>
-        <div class="banner">
-          <img src="imagens/banner2.jpeg" alt="Banner 2">
-        </div>
-        <span class="arrow left">&#10094;</span>
-        <span class="arrow right">&#10095;</span>
-    </div>      
+    <!-- Menu de navegação -->
+    <nav>
+      <div class="nav-menu">
+        <a href="#home" class="menu-link">Home</a>
+        <a href="#about">Lançamentos</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </nav>
 
+    <!-- Ações: Cadastro e Carrinho -->
+    <div class="actions">
+      <div class="cadastro">
+        <a href="#cadastro" id="btnCadastro"><i class="fa fa-user"></i></a>
+      </div>
+      <div class="cart">
+        <a href="carrinho.html">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cartCount">0</span> <!-- Contador de itens no carrinho -->
+        </a>
+      </div>
+    </div>
   </header>
+
+  <!-- Banners -->
+  <div class="banner-container">
+    <div class="banner active">
+      <img src="imagens/banner1.jpeg" alt="Banner 1">
+    </div>
+    <div class="banner">
+      <img src="imagens/banner2.jpeg" alt="Banner 2">
+    </div>
+    <span class="arrow left">&#10094;</span>
+    <span class="arrow right">&#10095;</span>
+  </div>      
 
   <!-- Início das categorias -->
   <main>
@@ -96,7 +94,7 @@
           <h3>Alien Trilogy</h3>
           <p class="preco">R$ 55,00</p>
           <p class="desconto">(Até 6x de R$ 10,42)</p>
-          <button>Comprar Agora</button>
+          <button onclick="addToCart('Alien Trilogy', 'R$ 55,00')">Comprar Agora</button>
         </div>
 
         <div class="produto-card">
@@ -104,7 +102,7 @@
           <h3>Bust a Groove II</h3>
           <p class="preco">R$ 58,00</p>
           <p class="desconto">(até 6x R$ 10,99)</p>
-          <button>Comprar Agora</button>
+          <button onclick="addToCart('Bust a Groove II', 'R$ 58,00')">Comprar Agora</button>
         </div>
 
         <div class="produto-card">
@@ -112,7 +110,7 @@
           <h3>Super Street Fighter II Turbo</h3>
           <p class="preco">R$ 110,00</p>
           <p class="desconto">(até 10 X R$ 13,05)</p>
-          <button>Comprar Agora</button>
+          <button onclick="addToCart('Super Street Fighter II Turbo', 'R$ 110,00')">Comprar Agora</button>
         </div>
 
         <div class="produto-card">
@@ -120,8 +118,9 @@
           <h3>Chase HQ. Plus</h3>
           <p class="preco">R$ 58,00</p>
           <p class="desconto">(até 6 X R$ 10,99)</p>
-          <button>Comprar Agora</button>
-          </div>
+          <button onclick="addToCart('Chase HQ. Plus', 'R$ 58,00')">Comprar Agora</button>
+        </div>
+
         </div>
 
         <button class="scroll-right">&#8594;</button> <!-- seta para a direita -->
@@ -129,31 +128,34 @@
       </div>
     </section>
 
-  <!-- Área de Login -->
-
-<section id="login" class="login-section">
-
-  <div class="login-container">
-    <h2>Login</h2>
-
-    <form action="worldretro.js" method="POST" class="login-form">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Digite seu email" required>
-
-      <label for="senha">Senha:</label>
-      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-
-      <button type="submit" class="login-button">Entrar</button>
-    </form>
-
-    <p class="cadastro-link">
-      Não tem uma conta? <a href="#cadastro"> Cadastre-se aqui!</a>
-    </p>
-  </div>
-</section>
   </main>
 
   <script src="worldretro.js"></script>
+
+  <script>
+// Função para adicionar um produto ao carrinho
+function addToCart(productName, productPrice) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Carrega o carrinho do localStorage
+
+  const product = { name: productName, price: productPrice };  // Cria um objeto com o nome e preço do produto
+  cart.push(product);  // Adiciona o produto ao carrinho
+
+  // Salva o carrinho no localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  updateCartCount();  // Atualiza o contador do carrinho
+}
+
+// Função para atualizar o contador de itens no carrinho
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartCount = document.getElementById('cartCount');  // Este é o ID onde o número de itens será exibido
+  cartCount.textContent = cart.length;  // Atualiza o contador com a quantidade de itens
+}
+
+// Inicializa o contador de itens no carrinho ao carregar a página
+updateCartCount();
+</script>
 
   <!-- Rodapé -->
   <footer>
