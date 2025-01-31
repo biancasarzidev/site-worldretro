@@ -425,13 +425,17 @@ nav {
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: #6a0dad99;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .produtos-lista {
     display: flex;
-    gap: 10px;
+    gap: 20px; /* Aumentei o gap para deixar um espaço melhor entre os produtos */
+    justify-content: center; /* Alinha os produtos ao centro */
     overflow: hidden;
     width: 100%;
+    flex-wrap: wrap; /* Permite que os produtos se ajustem em várias linhas se necessário */
 }
 
 .produto-card {
@@ -441,9 +445,46 @@ nav {
     overflow: hidden;
     text-align: center;
     transition: var(--transition);
-    width: 220px;
-    padding: 7px;
-    margin: 4px;
+    width: 220px; /* Largura consistente para os produtos */
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column; /* Garante que os itens dentro do card fiquem em coluna */
+    justify-content: space-between; /* Espaçamento entre imagem, título, preço e botão */
+    align-items: center;
+}
+
+.produto-card img {
+    width: 100%;
+    max-width: 200px; /* Limita o tamanho da imagem */
+    margin-bottom: 15px; /* Espaçamento abaixo da imagem */
+}
+
+.produto-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.produto-card .preco {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.produto-card button {
+    width: 100%; /* Faz o botão ocupar toda a largura do cartão */
+    padding: 10px;
+    background-color: #6200ea; /* Cor de fundo roxa */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.produto-card button:hover {
+    background-color: #3700b3; /* Cor do botão ao passar o mouse */
 }
 
 .scroll-left, .scroll-right {
@@ -469,6 +510,7 @@ nav {
 .scroll-left:hover, .scroll-right:hover {
     color: #6c63ff;
 }
+
 
 /* Adiciona um estilo de rolagem (opcional) */
 .produtos-lista::-webkit-scrollbar {

@@ -17,19 +17,6 @@
       <div class="logo">
         <a href="index.html"><img src="imagens/logo.png" alt="Logo World Retrô"></a>
       </div>
-
-      <!-- Botão Hamburguer -->
-      <div class="hamburger-menu">
-        <i class="fas fa-bars" aria-label="Abrir menu"></i>
-      </div>
-
-      <!-- Campo de pesquisa -->
-      <div class="search">
-        <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar produtos">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </div>
-
-      <!-- Menu de navegação -->
       <nav>
         <div class="nav-menu">
           <a href="index.html">Home</a>
@@ -38,12 +25,7 @@
           <a href="contato.html">Contato</a>
         </div>
       </nav>
-
-      <!-- Ações: Cadastro e Carrinho -->
       <div class="actions">
-        <div class="cadastro">
-          <a href="#cadastro"><i class="fa fa-user"></i></a>
-        </div>
         <div class="cart">
           <a href="carrinho.html" id="cartLink">
             <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
@@ -57,13 +39,7 @@
   <main>
     <section class="carrinho">
       <h2>Seu Carrinho</h2>
-
-      <!-- Produtos no carrinho -->
-      <div id="cartItems">
-        <!-- Aqui os itens do carrinho serão exibidos dinamicamente -->
-      </div>
-
-      <!-- Resumo e total -->
+      <div id="cartItems"></div>
       <div id="cartSummary">
         <h3>Total: R$ <span id="totalAmount">0,00</span></h3>
         <button id="checkoutBtn">Finalizar Compra</button>
@@ -71,20 +47,12 @@
     </section>
   </main>
 
-  <!-- Botão de Voltar -->
-  <div class="voltar-menu">
-    <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
-  </div>
-
   <script>
-    // Função para carregar os produtos do carrinho
     function loadCart() {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       let cartItemsContainer = document.getElementById('cartItems');
       let totalAmount = 0;
-
       cartItemsContainer.innerHTML = '';
-
       cart.forEach(item => {
         let itemElement = document.createElement('div');
         itemElement.classList.add('cart-item');
@@ -100,41 +68,21 @@
         cartItemsContainer.appendChild(itemElement);
         totalAmount += parseFloat(item.price.replace('R$ ', '').replace(',', '.')) * item.quantity;
       });
-
-      // Atualiza o total
       document.getElementById('totalAmount').innerText = totalAmount.toFixed(2);
     }
-
-    // Chama a função para carregar os produtos do carrinho assim que a página carrega
     window.onload = loadCart;
+
+    function addToCart(product, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let existingProduct = cart.find(item => item.product === product);
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        cart.push({ product, price, quantity: 1 });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.getElementById('cartCount').innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
   </script>
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-info">
-        <h4>World Retrô</h4>
-        <p>A verdadeira nostalgia dos games.</p>
-        <p>© 2025 World Retrô. Todos os direitos reservados.</p>
-      </div>
-      <div class="footer-social">
-        <h4>Siga-nos</h4>
-        <div class="social-icons">
-          <a href="https://chat.whatsapp.com/Geyjg4HJQiAGIUpkKpJtuf" target="_blank" class="social-icon" aria-label="WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-          </a>
-          <a href="https://www.instagram.com/worldretroart?igsh=Y2JsYzBzcjhycTQz" target="_blank" class="social-icon" aria-label="Instagram">
-            <i class="bi bi-instagram"></i>
-          </a>
-          <a href="#" class="social-icon" aria-label="Telegram">
-            <i class="bi bi-telegram"></i>
-          </a>
-          <a href="#" class="social-icon" aria-label="Facebook">
-            <i class="bi bi-facebook"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
 </body>
 </html>
