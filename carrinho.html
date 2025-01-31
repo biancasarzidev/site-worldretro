@@ -39,50 +39,21 @@
   <main>
     <section class="carrinho">
       <h2>Seu Carrinho</h2>
-      <div id="cartItems"></div>
+      <div id="carrinhoItens"></div>
       <div id="cartSummary">
-        <h3>Total: R$ <span id="totalAmount">0,00</span></h3>
+        <h3>Total: R$ <span id="carrinhoTotal">0,00</span></h3>
         <button id="checkoutBtn">Finalizar Compra</button>
       </div>
     </section>
   </main>
 
+  <script src="worldretro.js"></script>
   <script>
-    function loadCart() {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      let cartItemsContainer = document.getElementById('cartItems');
-      let totalAmount = 0;
-      cartItemsContainer.innerHTML = '';
-      cart.forEach(item => {
-        let itemElement = document.createElement('div');
-        itemElement.classList.add('cart-item');
-        itemElement.innerHTML = `
-          <img src="imagens/${item.product.toLowerCase().replace(/ /g, "_")}.png" alt="${item.product}">
-          <div>
-            <h4>${item.product}</h4>
-            <p>Preço: R$ ${item.price}</p>
-            <p>Quantidade: ${item.quantity}</p>
-            <p>Total: R$ ${(parseFloat(item.price.replace('R$ ', '').replace(',', '.')) * item.quantity).toFixed(2)}</p>
-          </div>
-        `;
-        cartItemsContainer.appendChild(itemElement);
-        totalAmount += parseFloat(item.price.replace('R$ ', '').replace(',', '.')) * item.quantity;
-      });
-      document.getElementById('totalAmount').innerText = totalAmount.toFixed(2);
-    }
-    window.onload = loadCart;
-
-    function addToCart(product, price) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      let existingProduct = cart.find(item => item.product === product);
-      if (existingProduct) {
-        existingProduct.quantity += 1;
-      } else {
-        cart.push({ product, price, quantity: 1 });
-      }
-      localStorage.setItem('cart', JSON.stringify(cart));
-      document.getElementById('cartCount').innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
-    }
+    window.addEventListener('load', () => {
+      const carrinhoSalvo = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho = carrinhoSalvo;
+      renderizarCarrinho();
+    });
   </script>
 </body>
 </html>

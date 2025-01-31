@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-//login
+// Login
 // Verifique se o formulário de login existe antes de adicionar o evento de clique
 const loginForm = document.getElementById('loginForm');
 
@@ -89,9 +89,9 @@ if (loginForm) {
 // Interação do botão de cadastro com a tela de login
 document.getElementById('btnCadastro').addEventListener('click', function (event) {
   event.preventDefault(); // Impede o comportamento padrão do link
-  
+
   const loginSection = document.getElementById('login');
-  
+
   // Se a área de login já estiver visível, faz scroll até ela
   if (loginSection.style.display === 'block') {
     loginSection.scrollIntoView({ behavior: 'smooth' });
@@ -101,7 +101,7 @@ document.getElementById('btnCadastro').addEventListener('click', function (event
   }
 });
 
-//seta dos produtos
+// Seta dos produtos
 // Selecionando os elementos
 const scrollLeft = document.querySelector('.scroll-left');
 const scrollRight = document.querySelector('.scroll-right');
@@ -109,18 +109,18 @@ const produtosLista = document.querySelector('.produtos-lista');
 
 // Função para rolar para a esquerda
 scrollLeft.addEventListener('click', () => {
-    produtosLista.scrollBy({
-        left: -200, // Mover 200px para a esquerda
-        behavior: 'smooth'
-    });
+  produtosLista.scrollBy({
+    left: -200, // Mover 200px para a esquerda
+    behavior: 'smooth'
+  });
 });
 
 // Função para rolar para a direita
 scrollRight.addEventListener('click', () => {
-    produtosLista.scrollBy({
-        left: 200, // Mover 200px para a direita
-        behavior: 'smooth'
-    });
+  produtosLista.scrollBy({
+    left: 200, // Mover 200px para a direita
+    behavior: 'smooth'
+  });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-document.addEventListener('DOMContentLoaded'), () => {
+document.addEventListener('DOMContentLoaded', () => {
   // Seletores
   const hamburger = document.querySelector('.hamburger-menu');
   const navMenu = document.querySelector('.nav-menu');
@@ -174,8 +174,6 @@ document.addEventListener('DOMContentLoaded'), () => {
   const contactLink = document.querySelector('a[href="#contact"]');
   const contactSection = document.getElementById('contact');
 
-}
-  
   // Função para alternar o menu responsivo
   hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
@@ -217,7 +215,81 @@ document.addEventListener('DOMContentLoaded'), () => {
       navMenu.classList.remove('active');
     });
   }
-  
+});
 
+function renderizarCarrinho() {
+  const carrinhoItens = document.getElementById('carrinhoItens');
+  const carrinhoTotal = document.getElementById('carrinhoTotal');
+  carrinhoItens.innerHTML = '';
+  let total = 0;
 
+  carrinho.forEach(item => {
+    const itemElement = document.createElement('div');
+    itemElement.classList.add('carrinho-item');
+    itemElement.innerHTML = `
+      <span>${item.nome}</span>
+      <span>${item.preco}</span>
+      <span>Quantidade: ${item.quantidade}</span>
+    `;
+    carrinhoItens.appendChild(itemElement);
 
+    const precoNumerico = parseFloat(item.preco.replace('R$ ', ''));
+    total += precoNumerico * item.quantidade;
+  });
+
+  carrinhoTotal.textContent = `R$ ${total.toFixed(2)}`;
+}
+
+function addToCart(product, price) {
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  let existingProduct = carrinho.find(item => item.nome === product);
+
+  if (existingProduct) {
+    existingProduct.quantidade += 1;
+  } else {
+    carrinho.push({ nome: product, preco: price, quantidade: 1 });
+  }
+
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  renderizarCarrinho();
+
+  // Redirecionar para a página do carrinho
+  window.location.href = 'carrinho.html';
+}
+
+window.addEventListener('load', () => {
+  // Obter o carrinho do localStorage
+  const carrinhoSalvo = JSON.parse(localStorage.getItem('carrinho')) || [];
+  carrinho = carrinhoSalvo;
+
+  // Renderizar o carrinho
+  renderizarCarrinho();
+});
+
+window.addEventListener('load', () => {
+  // Obter o carrinho do localStorage
+  const carrinhoSalvo = JSON.parse(localStorage.getItem('carrinho')) || [];
+  carrinho = carrinhoSalvo;
+
+  // Renderizar o carrinho
+  renderizarCarrinho();
+});
+
+function openModal(title, image, price, description) {
+  const modal = document.getElementById('produtoModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalImage = document.getElementById('modalImage');
+  const modalPrice = document.getElementById('modalPrice');
+  const modalDescription = document.getElementById('modalDescription');
+  const addToCartButton = document.getElementById('addToCart');
+
+  modalTitle.innerText = title;
+  modalImage.src = image;
+  modalPrice.innerText = price;
+  modalDescription.innerText = description;
+
+  // Atualizar o botão "Adicionar ao Carrinho" com os dados do produto
+  addToCartButton.onclick = () => addToCart(title, price);
+
+  modal.style.display = 'block';
+}

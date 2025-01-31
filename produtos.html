@@ -130,20 +130,27 @@
         <p id="parcelamento">(Até 6x de R$ 10,42)</p>
       </div>
       
-      <!-- Calcular Frete -->
-      <div class="produto-card">
-        <div class="frete">
-          <label for="cep">Calcule o frete:</label>
-          <input type="text" id="cep" placeholder="Digite seu CEP">
-          <button id="calcularFrete" onclick="calcularFrete()">Calcular frete</button>
-          <p id="freteResultado"></p>
-        </div>
-
-        <!-- Botão Adicionar ao Carrinho -->
-        <button id="addToCart" onclick="addToCart('Produto Nome', 'R$ 55,00')">Adicionar ao Carrinho</button>
+     <!-- Calcular Frete -->
+    <div class="produto-card">
+      <div class="frete">
+        <label for="cep">Calcule o frete:</label>
+        <input type="text" id="cep" placeholder="Digite seu CEP">
+        <button id="calcularFrete" onclick="calcularFrete()">Calcular frete</button>
+        <p id="freteResultado"></p>
       </div>
+
+         <!-- Botão Adicionar ao Carrinho -->
+      <button id="addToCart">Adicionar ao Carrinho</button>
     </div>
   </div>
+</div>
+
+  <!-- Seção do Carrinho -->
+  <section class="carrinho">
+    <h2>Carrinho</h2>
+    <div id="carrinhoItens"></div>
+    <p>Total: <span id="carrinhoTotal">R$ 0,00</span></p>
+  </section>
 
   <script src="worldretro.js"></script>
 
@@ -174,45 +181,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Funcionalidades JavaScript
-    // Modals, Carrinho, etc.
-
-    // Função para abrir o modal
-    function openModal(title, image, price, description) {
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalImage').src = image;
-      document.getElementById('modalPrice').innerText = price;
-      document.getElementById('modalDescription').innerText = description;
-      document.getElementById('produtoModal').style.display = 'block';
-    }
-
-    // Função para fechar o modal
-    function closeModal() {
-      document.getElementById('produtoModal').style.display = 'none';
-    }
-
-    // Adicionar ao carrinho
-    function addToCart(product, price) {
-      let cartCount = parseInt(document.getElementById('cartCount').innerText);
-      cartCount++;
-      document.getElementById('cartCount').innerText = cartCount;
-
-      // Exemplo de armazenamento local (não implementado no backend)
-      localStorage.setItem('cart', JSON.stringify({ product, price }));
-    }
-
-    // Calcular frete
-    function calcularFrete() {
-      const cep = document.getElementById('cep').value;
-      if (cep.length === 8) {
-        document.getElementById('freteResultado').innerText = 'Frete calculado com sucesso!';
-      } else {
-        document.getElementById('freteResultado').innerText = 'CEP inválido!';
-      }
-    }
-  </script>
 
 </body>
 </html>
