@@ -11,46 +11,48 @@
 </head>
 <body>
 
-<header>
-  <div class="interface">
-    <div class="logo">
-      <img src="imagens/logo.png" alt="Logo World Retrô">
-    </div>
-  
-    <!-- Botão Hamburguer -->
-    <div class="hamburger-menu">
-      <i class="fas fa-bars" aria-label="Abrir menu"></i>
-    </div>
-  
-    <!-- Campo de pesquisa -->
-    <div class="search">
-      <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar produtos">
-      <button type="submit"><i class="fas fa-search"></i></button>
-    </div>
-  
-    <!-- Menu de navegação -->
-    <nav>
-      <div class="nav-menu">
-        <a href="#home">Home</a>
-        <a href="#about">Lançamentos</a>
-        <a href="#services">Produtos</a>
-        <a href="#contact">Contato</a>
+  <!-- Cabeçalho e logo -->
+  <header>
+    <div class="interface">
+      <div class="logo">
+        <a href="index.html"><img src="imagens/logo.png" alt="Logo World Retrô"></a>
       </div>
-    </nav>
-  
-    <!-- Ações: Cadastro e Carrinho -->
-    <div class="actions">
-      <div class="cadastro">
-        <a href="#cadastro"><i class="fa fa-user"></i></a>
+
+      <!-- Botão Hamburguer -->
+      <div class="hamburger-menu">
+        <i class="fas fa-bars" aria-label="Abrir menu"></i>
       </div>
-      <div class="cart">
-        <a href="carrinho.html" id="cartLink">
-          <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
-        </a>
+
+      <!-- Campo de pesquisa -->
+      <div class="search">
+        <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar produtos">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+
+      <!-- Menu de navegação -->
+      <nav>
+        <div class="nav-menu">
+          <a href="index.html">Home</a>
+          <a href="#about">Lançamentos</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="contato.html">Contato</a>
+        </div>
+      </nav>
+
+      <!-- Ações: Cadastro e Carrinho -->
+      <div class="actions">
+        <div class="cadastro">
+          <a href="#cadastro"><i class="fa fa-user"></i></a>
+        </div>
+        <div class="cart">
+          <a href="carrinho.html" id="cartLink">
+            <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-  
+  </header>
+
   <!-- Banners -->
   <div class="banner-container">
     <div class="banner active">
@@ -62,167 +64,155 @@
     <span class="arrow left">&#10094;</span>
     <span class="arrow right">&#10095;</span>
   </div>
-  
+
   <!-- Botão de Voltar -->
   <div class="voltar-menu">
     <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
   </div>
-</header>
 
-<main>
-  <section class="produtos">
-    <h2>Produtos Disponíveis</h2>
-    <div class="produtos-lista">
+  <!-- Produtos -->
+  <main>
+    <section class="produtos">
+      <h2>Produtos Disponíveis</h2>
+      <div class="produtos-lista">
 
-      <!-- Exemplo de Produto -->
-      <div class="produto-card" onclick="openModal('Alien Trilogy', 'imagens/alien.png', 'R$ 55,00', 'Alien Trilogy para Sega Saturno. Necessário Pseudo Saturn. Outros desbloqueios podem ou não funcionar, mas o Pseudo é certeza, cuidado com atualizações novas.')">
-        <img src="imagens/alien.png" alt="Capa do jogo Alien Trilogy">
-        <h3>Alien Trilogy</h3>
-        <p class="preco">R$ 55,00</p>
-        <div class="parcelamento">(Até 6x de R$ 10,42)</div>
-        <button onclick="addToCart('Alien Trilogy', 'R$ 55,00')">Comprar Agora</button>
+        <!-- Exemplo de Produto -->
+        <div class="produto-card" onclick="openModal('Alien Trilogy', 'imagens/alien.png', 'R$ 55,00', 'Alien Trilogy para Sega Saturno. Necessário Pseudo Saturn. Outros desbloqueios podem ou não funcionar, mas o Pseudo é certeza, cuidado com atualizações novas.')">
+          <img src="imagens/alien.png" alt="Capa do jogo Alien Trilogy">
+          <h3>Alien Trilogy</h3>
+          <p class="preco">R$ 55,00</p>
+          <div class="parcelamento">(Até 6x de R$ 10,42)</div>
+          <button onclick="addToCart('Alien Trilogy', 'R$ 55,00')">Comprar Agora</button>
+        </div>
+
+        <div class="produto-card" onclick="openModal('Bust a Groove II', 'imagens/groove.png', 'R$ 58,00', 'Bust a Groove II é um jogo de dança para PS1 com jogabilidade divertida e personagens cativantes.')">
+          <img src="imagens/groove.png" alt="Capa do jogo Bust a Groove II">
+          <h3>Bust a Groove II</h3>
+          <p class="preco">R$ 58,00</p>
+          <div class="parcelamento">(Até 6x de R$ 10,99)</div>
+          <button onclick="addToCart('Bust a Groove II', 'R$ 58,00')">Comprar Agora</button>
+        </div>
+
+        <div class="produto-card" onclick="openModal('Super Street Fighter II Turbo', 'imagens/street.png', 'R$ 110,00', 'Super Street Fighter II Turbo traz uma jogabilidade clássica com novos personagens e modos.')">
+          <img src="imagens/street.png" alt="Street">
+          <h3>Super Street Fighter II Turbo</h3>
+          <p class="preco">R$ 110,00</p>
+          <div class="parcelamento">(Até 10x de R$ 13,05)</div>
+          <button onclick="addToCart('Super Street Fighter II Turbo', 'R$ 110,00')">Comprar Agora</button>
+        </div>
+
+        <div class="produto-card" onclick="openModal('Chase HQ. Plus', 'imagens/chase.png', 'R$ 58,00', 'Chase HQ. Plus oferece um estilo de corrida e perseguição único para os fãs de ação e velocidade.')">
+          <img src="imagens/chase.png" alt="Chase">
+          <h3>Chase HQ. Plus</h3>
+          <p class="preco">R$ 58,00</p>
+          <div class="parcelamento">(Até 6x de R$ 10,99)</div>
+          <button onclick="addToCart('Chase HQ. Plus', 'R$ 58,00')">Comprar Agora</button>
+        </div>
+
       </div>
+    </section>
+  </main>
 
-      <div class="produto-card" onclick="openModal('Bust a Groove II', 'imagens/groove.png', 'R$ 58,00', 'Bust a Groove II é um jogo de dança para PS1 com jogabilidade divertida e personagens cativantes.')">
-        <img src="imagens/groove.png" alt="Capa do jogo Bust a Groove II">
-        <h3>Bust a Groove II</h3>
-        <p class="preco">R$ 58,00</p>
-        <div class="parcelamento">(Até 6x de R$ 10,99)</div>
-        <button onclick="addToCart('Bust a Groove II', 'R$ 58,00')">Comprar Agora</button>
+  <!-- Modal de Informações do Produto -->
+  <div class="modal" id="produtoModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle">Nome do Produto</h2>
+      <div class="modal-gallery">
+        <img id="modalImage" src="" alt="Imagem do produto">
+        <div id="modalVideos" class="modal-videos">
+          <!-- Links para vídeos -->
+        </div>
       </div>
-
-      <div class="produto-card" onclick="openModal('Super Street Fighter II Turbo', 'imagens/street.png', 'R$ 110,00', 'Super Street Fighter II Turbo traz uma jogabilidade clássica com novos personagens e modos.')">
-        <img src="imagens/street.png" alt="Street">
-        <h3>Super Street Fighter II Turbo</h3>
-        <p class="preco">R$ 110,00</p>
-        <div class="parcelamento">(Até 10x de R$ 13,05)</div>
-        <button onclick="addToCart('Super Street Fighter II Turbo', 'R$ 110,00')">Comprar Agora</button>
+      <p id="modalDescription"><strong>Descrição do Produto</strong></p>      
+      <div style="text-align: center;">
+        <p><strong>Preço:</strong> R$ <span id="modalPrice">55,00</span></p>
+        <p id="parcelamento">(Até 6x de R$ 10,42)</p>
       </div>
+      
+      <!-- Calcular Frete -->
+      <div class="produto-card">
+        <div class="frete">
+          <label for="cep">Calcule o frete:</label>
+          <input type="text" id="cep" placeholder="Digite seu CEP">
+          <button id="calcularFrete" onclick="calcularFrete()">Calcular frete</button>
+          <p id="freteResultado"></p>
+        </div>
 
-      <div class="produto-card" onclick="openModal('Chase HQ. Plus', 'imagens/chase.png', 'R$ 58,00', 'Chase HQ. Plus oferece um estilo de corrida e perseguição único para os fãs de ação e velocidade.')">
-        <img src="imagens/chase.png" alt="Chase">
-        <h3>Chase HQ. Plus</h3>
-        <p class="preco">R$ 58,00</p>
-        <div class="parcelamento">(Até 6x de R$ 10,99)</div>
-        <button onclick="addToCart('Chase HQ. Plus', 'R$ 58,00')">Comprar Agora</button>
-      </div>
-
-    </div>
-  </section>
-</main>
-
-<!-- Modal de Informações do Produto -->
-<div class="modal" id="produtoModal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2 id="modalTitle">Nome do Produto</h2>
-    <div class="modal-gallery">
-      <img id="modalImage" src="" alt="Imagem do produto">
-      <div id="modalVideos" class="modal-videos">
-        <!-- Links para vídeos -->
-      </div>
-    </div>
-    <p id="modalDescription"><strong>Descrição do Produto</strong></p>      
-    <div style="text-align: center;">
-      <p><strong>Preço:</strong> R$ <span id="modalPrice">55,00</span></p>
-      <p id="parcelamento">(Até 6x de R$ 10,42)</p>
-    </div>
-    
-    <!-- Calcular Frete -->
-    <div class="produto-card">
-      <div class="frete">
-        <label for="cep">Calcule o frete:</label>
-        <input type="text" id="cep" placeholder="Digite seu CEP">
-        <button id="calcularFrete" onclick="calcularFrete()">Calcular frete</button>
-        <p id="freteResultado"></p>
-      </div>
-
-      <!-- Botão Adicionar ao Carrinho -->
-      <button id="addToCart" onclick="addToCart('Produto Nome', 'R$ 55,00')">Adicionar ao Carrinho</button>
-    </div>
-  </div>
-</div>
-
-<script src="worldretro.js"></script>
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-info">
-      <h4>World Retrô</h4>
-      <p>A verdadeira nostalgia dos games.</p>
-      <p>© 2025 World Retrô. Todos os direitos reservados.</p>
-    </div>
-    <div class="footer-social">
-      <h4>Siga-nos</h4>
-      <div class="social-icons">
-        <a href="https://chat.whatsapp.com/Geyjg4HJQiAGIUpkKpJtuf" target="_blank" class="social-icon" aria-label="WhatsApp">
-          <i class="bi bi-whatsapp"></i>
-        </a>
-        <a href="https://www.instagram.com/worldretroart?igsh=Y2JsYzBzcjhycTQz" target="_blank" class="social-icon" aria-label="Instagram">
-          <i class="bi bi-instagram"></i>
-        </a>
-        <a href="#" class="social-icon" aria-label="Telegram">
-          <i class="bi bi-telegram"></i>
-        </a>
-        <a href="#" class="social-icon" aria-label="Facebook">
-          <i class="bi bi-facebook"></i>
-        </a>
+        <!-- Botão Adicionar ao Carrinho -->
+        <button id="addToCart" onclick="addToCart('Produto Nome', 'R$ 55,00')">Adicionar ao Carrinho</button>
       </div>
     </div>
   </div>
-</footer>
 
-<script>
-// Função para abrir o modal com os dados do produto
-function openModal(title, image, price, description) {
-  document.getElementById('produtoModal').style.display = 'block';
-  document.getElementById('modalTitle').textContent = title;
-  document.getElementById('modalImage').src = image;
-  document.getElementById('modalPrice').textContent = price;
-  document.getElementById('modalDescription').innerHTML = description;
-}
+  <script src="worldretro.js"></script>
 
-// Fechar o modal
-function closeModal() {
-  document.getElementById('produtoModal').style.display = 'none';
-  document.body.style.overflow = 'auto'; // Reativar o scroll
-}
+  <!-- Rodapé -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h4>World Retrô</h4>
+        <p>A verdadeira nostalgia dos games.</p>
+        <p>© 2025 World Retrô. Todos os direitos reservados.</p>
+      </div>
+      <div class="footer-social">
+        <h4>Siga-nos</h4>
+        <div class="social-icons">
+          <a href="https://chat.whatsapp.com/Geyjg4HJQiAGIUpkKpJtuf" target="_blank" class="social-icon" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/worldretroart?igsh=Y2JsYzBzcjhycTQz" target="_blank" class="social-icon" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="Telegram">
+            <i class="bi bi-telegram"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-// Calcular o frete
-function calcularFrete() {
-  const cep = document.getElementById('cep').value;
-  if (cep) {
-    document.getElementById('freteResultado').textContent = `Frete estimado para o CEP ${cep}: R$ 15,00`;
-  } else {
-    document.getElementById('freteResultado').textContent = 'Por favor, insira um CEP válido.';
-  }
-}
+  <script>
+    // Funcionalidades JavaScript
+    // Modals, Carrinho, etc.
 
-// Função para adicionar um produto ao carrinho
-function addToCart(name, price) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const product = { name, price };
-  cart.push(product);
-  localStorage.setItem('cart', JSON.stringify(cart));
+    // Função para abrir o modal
+    function openModal(title, image, price, description) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalImage').src = image;
+      document.getElementById('modalPrice').innerText = price;
+      document.getElementById('modalDescription').innerText = description;
+      document.getElementById('produtoModal').style.display = 'block';
+    }
 
-  // Atualizar contador de itens no carrinho
-  updateCartCount();
+    // Função para fechar o modal
+    function closeModal() {
+      document.getElementById('produtoModal').style.display = 'none';
+    }
 
-  // Redirecionar para o carrinho
-  window.location.href = 'carrinho.html';
-}
+    // Adicionar ao carrinho
+    function addToCart(product, price) {
+      let cartCount = parseInt(document.getElementById('cartCount').innerText);
+      cartCount++;
+      document.getElementById('cartCount').innerText = cartCount;
 
-// Função para atualizar o contador de itens no carrinho
-function updateCartCount() {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  document.getElementById('cartCount').textContent = cart.length;
-}
+      // Exemplo de armazenamento local (não implementado no backend)
+      localStorage.setItem('cart', JSON.stringify({ product, price }));
+    }
 
-// Atualiza o contador quando a página carrega
-window.onload = function() {
-  updateCartCount();
-}
-</script>
+    // Calcular frete
+    function calcularFrete() {
+      const cep = document.getElementById('cep').value;
+      if (cep.length === 8) {
+        document.getElementById('freteResultado').innerText = 'Frete calculado com sucesso!';
+      } else {
+        document.getElementById('freteResultado').innerText = 'CEP inválido!';
+      }
+    }
+  </script>
 
 </body>
 </html>

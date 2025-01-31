@@ -11,147 +11,130 @@
 </head>
 <body>
 
-<header>
-  <div class="interface">
-    <div class="logo">
-      <img src="imagens/logo.png" alt="Logo World Retrô">
+  <!-- Cabeçalho e logo -->
+  <header>
+    <div class="interface">
+      <div class="logo">
+        <a href="index.html"><img src="imagens/logo.png" alt="Logo World Retrô"></a>
+      </div>
+
+      <!-- Botão Hamburguer -->
+      <div class="hamburger-menu">
+        <i class="fas fa-bars" aria-label="Abrir menu"></i>
+      </div>
+
+      <!-- Campo de pesquisa -->
+      <div class="search">
+        <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar produtos">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+
+      <!-- Menu de navegação -->
+      <nav>
+        <div class="nav-menu">
+          <a href="index.html">Home</a>
+          <a href="#about">Lançamentos</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="contato.html">Contato</a>
+        </div>
+      </nav>
+
+      <!-- Ações: Cadastro e Carrinho -->
+      <div class="actions">
+        <div class="cadastro">
+          <a href="#cadastro"><i class="fa fa-user"></i></a>
+        </div>
+        <div class="cart">
+          <a href="carrinho.html" id="cartLink">
+            <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+          </a>
+        </div>
+      </div>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="carrinho.html">Carrinho</a>
-    </nav>
+  </header>
+
+  <!-- Carrinho de Compras -->
+  <main>
+    <section class="carrinho">
+      <h2>Seu Carrinho</h2>
+
+      <!-- Produtos no carrinho -->
+      <div id="cartItems">
+        <!-- Aqui os itens do carrinho serão exibidos dinamicamente -->
+      </div>
+
+      <!-- Resumo e total -->
+      <div id="cartSummary">
+        <h3>Total: R$ <span id="totalAmount">0,00</span></h3>
+        <button id="checkoutBtn">Finalizar Compra</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Botão de Voltar -->
+  <div class="voltar-menu">
+    <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
   </div>
-</header>
 
-<main>
-  <section class="produtos">
-    <h2>Produtos</h2>
+  <script>
+    // Função para carregar os produtos do carrinho
+    function loadCart() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let cartItemsContainer = document.getElementById('cartItems');
+      let totalAmount = 0;
 
-    <!-- Produto 1 -->
-    <div class="produto">
-      <img src="imagens/alien.png" alt="Alien Trilogy">
-      <h3>Alien Trilogy</h3>
-      <p>Preço: R$ 55,00</p>
-      <button onclick="addToCart({name: 'Alien Trilogy', price: 'R$ 55,00', image: 'imagens/alien.png'})">Adicionar ao Carrinho</button>
-    </div>
+      cartItemsContainer.innerHTML = '';
 
-    <!-- Produto 2 -->
-    <div class="produto">
-      <img src="imagens/groove.png" alt="Bust a Groove II">
-      <h3>Bust a Groove II</h3>
-      <p>Preço: R$ 58,00</p>
-      <button onclick="addToCart({name: 'Bust a Groove II', price: 'R$ 58,00', image: 'imagens/groove.png'})">Adicionar ao Carrinho</button>
-    </div>
+      cart.forEach(item => {
+        let itemElement = document.createElement('div');
+        itemElement.classList.add('cart-item');
+        itemElement.innerHTML = `
+          <img src="imagens/${item.product.toLowerCase().replace(/ /g, "_")}.png" alt="${item.product}">
+          <div>
+            <h4>${item.product}</h4>
+            <p>Preço: R$ ${item.price}</p>
+            <p>Quantidade: ${item.quantity}</p>
+            <p>Total: R$ ${(parseFloat(item.price.replace('R$ ', '').replace(',', '.')) * item.quantity).toFixed(2)}</p>
+          </div>
+        `;
+        cartItemsContainer.appendChild(itemElement);
+        totalAmount += parseFloat(item.price.replace('R$ ', '').replace(',', '.')) * item.quantity;
+      });
 
-    <!-- Produto 3 -->
-    <div class="produto">
-      <img src="imagens/street.png" alt="Super Street Fighter II Turbo">
-      <h3>Super Street Fighter II Turbo</h3>
-      <p>Preço: R$ 110,00</p>
-      <button onclick="addToCart({name: 'Super Street Fighter II Turbo', price: 'R$ 110,00', image: 'imagens/street.png'})">Adicionar ao Carrinho</button>
-    </div>
+      // Atualiza o total
+      document.getElementById('totalAmount').innerText = totalAmount.toFixed(2);
+    }
 
-    <!-- Produto 4 -->
-    <div class="produto">
-      <img src="imagens/chase.png" alt="Chase HQ. Plus">
-      <h3>Chase HQ. Plus</h3>
-      <p>Preço: R$ 58,00</p>
-      <button onclick="addToCart({name: 'Chase HQ. Plus', price: 'R$ 58,00', image: 'imagens/chase.png'})">Adicionar ao Carrinho</button>
-    </div>
+    // Chama a função para carregar os produtos do carrinho assim que a página carrega
+    window.onload = loadCart;
+  </script>
 
-  </section>
-
-  <section class="carrinho">
-    <h2>Seu Carrinho</h2>
-    <div id="cartItems"></div> <!-- Aqui os itens do carrinho serão exibidos -->
-    <div id="cartTotal">
-      <h3>Total: R$ <span id="totalPrice">0,00</span></h3>
-      <div id="installments">
-        <!-- Opções de parcelamento serão exibidas aqui -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h4>World Retrô</h4>
+        <p>A verdadeira nostalgia dos games.</p>
+        <p>© 2025 World Retrô. Todos os direitos reservados.</p>
       </div>
-      <button onclick="finalizarCompra()">Finalizar Compra</button>
-    </div>
-  </section>
-</main>
-
-<script>
-// Função para adicionar ao carrinho
-function addToCart(product) {
-  // Recuperando o carrinho atual ou criando um novo
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  // Adiciona o produto ao carrinho
-  cart.push(product);
-
-  // Salva o carrinho atualizado no localStorage
-  localStorage.setItem('cart', JSON.stringify(cart));
-
-  // Atualiza a tela do carrinho
-  updateCart();
-}
-
-// Recuperando o carrinho do localStorage
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-// Função para atualizar a tela do carrinho
-function updateCart() {
-  const cartItemsDiv = document.getElementById('cartItems');
-  const totalPriceElement = document.getElementById('totalPrice');
-  const installmentsDiv = document.getElementById('installments');
-
-  // Limpa os itens atuais
-  cartItemsDiv.innerHTML = '';
-
-  // Adiciona os produtos ao carrinho
-  cart.forEach((item, index) => {
-    const itemDiv = document.createElement('div');
-    itemDiv.classList.add('cart-item');
-    itemDiv.innerHTML = `
-      <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-      <div>
-        <p><strong>${item.name}</strong></p>
-        <p>Preço: ${item.price}</p>
-        <button onclick="removeFromCart(${index})">Remover</button>
+      <div class="footer-social">
+        <h4>Siga-nos</h4>
+        <div class="social-icons">
+          <a href="https://chat.whatsapp.com/Geyjg4HJQiAGIUpkKpJtuf" target="_blank" class="social-icon" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/worldretroart?igsh=Y2JsYzBzcjhycTQz" target="_blank" class="social-icon" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="Telegram">
+            <i class="bi bi-telegram"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+        </div>
       </div>
-    `;
-    cartItemsDiv.appendChild(itemDiv);
-  });
-
-  // Atualiza o total
-  const total = cart.reduce((sum, item) => sum + parseFloat(item.price.replace('R$', '').replace(',', '.')), 0);
-  totalPriceElement.textContent = total.toFixed(2);
-
-  // Exibe as opções de parcelamento
-  const installments = getInstallments(total);
-  installmentsDiv.innerHTML = `Até ${installments}x de R$ ${(total / installments).toFixed(2)}`;
-}
-
-// Função para remover um item do carrinho
-function removeFromCart(index) {
-  cart.splice(index, 1);  // Remove o item do carrinho
-  localStorage.setItem('cart', JSON.stringify(cart));  // Salva novamente no localStorage
-  updateCart();  // Atualiza a tela
-}
-
-// Função para calcular o número de parcelas
-function getInstallments(total) {
-  if (total <= 100) return 1;  // Se o total for menor ou igual a 100, não permite parcelamento
-  if (total <= 200) return 3;  // Para totais entre 100 e 200, parcela em até 3 vezes
-  if (total <= 300) return 6;  // Para totais entre 200 e 300, parcela em até 6 vezes
-  return 12;  // Para totais acima de 300, parcela em até 12 vezes
-}
-
-// Função para finalizar a compra (apenas exibe uma mensagem)
-function finalizarCompra() {
-  alert('Compra finalizada com sucesso!');
-  cart = [];  // Limpa o carrinho
-  localStorage.setItem('cart', JSON.stringify(cart));  // Atualiza o carrinho no localStorage
-  updateCart();  // Atualiza a tela
-}
-
-// Inicializa o carrinho
-updateCart();
-</script>
+    </div>
+  </footer>
 
 </body>
 </html>
