@@ -163,17 +163,117 @@ nav {
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: red;
+    background-color: #8e44ad; /* Cor roxa para combinar com o tema do site */
     color: white;
-    font-size: 12px;
+    font-size: 14px; /* Tamanho do texto ajustado */
     font-weight: bold;
     border-radius: 50%;
-    width: 18px;
-    height: 18px;
+    width: 20px; /* Tamanho do círculo */
+    height: 20px; /* Tamanho do círculo */
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid white; /* Borda branca para destacar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombrinha suave */
+    transition: all 0.3s ease-in-out; /* Transição suave */
 }
+
+.cart span:hover {
+    transform: scale(1.2); /* Efeito de zoom quando o usuário passa o mouse */
+}
+
+/* Estilo para o carrinho */
+#carrinhoItens {
+    margin-bottom: 20px;
+}
+
+/* Estilo de cada produto no carrinho */
+.produto-carrinho {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para a imagem do produto */
+.produto-carrinho .produto-imagem img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+/* Estilo para as informações do produto */
+.produto-carrinho .produto-info {
+    flex-grow: 1;
+}
+
+.produto-carrinho .produto-info p {
+    margin: 5px 0;
+}
+
+/* Estilo para o botão de remover item */
+.produto-carrinho .produto-info button {
+    background-color: #f44b61;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.produto-carrinho .produto-info button:hover {
+    background-color: #e03a4d;
+}
+
+/* Estilo para a área do total e ações */
+#cartTotal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Estilo para o total do carrinho */
+#cartTotal h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Estilo para o botão de finalizar compra */
+#cartTotal button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#cartTotal button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para as opções de parcelamento */
+#installments {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+/* Estilo para o botão de continuar comprando */
+#cartTotal button:nth-child(2) {
+    background-color: #f5a623;
+}
+
+#cartTotal button:nth-child(2):hover {
+    background-color: #e4941f;
+}
+
 
 /* Contêiner do banner */
 .banner-container {
