@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Loja retrô de games clássicos e nostálgicos. Encontre Alien Trilogy, Bust a Groove II e muito mais!">
+  <meta name="keywords" content="jogos antigos, sega, ps1, retro games, world retrô">
+  <meta name="author" content="World Retrô">
+  <!--Links-->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
@@ -133,6 +137,31 @@
   <script src="worldretro.js"></script>
 
   <script>
+  //banners
+  let currentBanner = 0;
+  const banners = document.querySelectorAll('.banner');
+  const arrows = document.querySelectorAll('.arrow');
+
+  function showBanner(index) {
+    banners.forEach((banner, i) => {
+      banner.classList.toggle('active', i === index);
+    });
+  }
+
+  arrows.forEach((arrow) => {
+    arrow.addEventListener('click', () => {
+      currentBanner = arrow.classList.contains('right')
+        ? (currentBanner + 1) % banners.length
+        : (currentBanner - 1 + banners.length) % banners.length;
+      showBanner(currentBanner);
+    });
+  });
+
+  setInterval(() => {
+    currentBanner = (currentBanner + 1) % banners.length;
+    showBanner(currentBanner);
+  }, 5000); // Altere o tempo em milissegundos conforme necessário
+
 // Função para adicionar um produto ao carrinho
 function addToCart(productName, productPrice) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Carrega o carrinho do localStorage

@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Loja retrô de games clássicos e nostálgicos. Encontre Alien Trilogy, Bust a Groove II e muito mais!">
+  <meta name="keywords" content="jogos antigos, sega, ps1, retro games, world retrô">
+  <meta name="author" content="World Retrô">
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
@@ -39,6 +43,9 @@
   <main>
     <section class="carrinho">
       <h2>Seu Carrinho</h2>
+      <div id="carrinhoVazio" style="display: none;">
+        <p>Seu carrinho está vazio. <a href="produtos.html">Continue comprando</a>.</p>
+      </div>
       <div id="carrinhoItens"></div>
       <div id="cartSummary">
         <h3>Total: R$ <span id="carrinhoTotal">0,00</span></h3>
@@ -51,6 +58,17 @@
   <script>
     window.addEventListener('load', () => {
       const carrinhoSalvo = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const carrinhoItensDiv = document.getElementById('carrinhoItens');
+      const carrinhoVazioDiv = document.getElementById('carrinhoVazio');
+
+      if (carrinhoSalvo.length === 0) {
+        carrinhoItensDiv.style.display = 'none';
+        carrinhoVazioDiv.style.display = 'block';
+      } else {
+        carrinhoItensDiv.style.display = 'block';
+        carrinhoVazioDiv.style.display = 'none';
+      }
+
       carrinho = carrinhoSalvo;
       renderizarCarrinho();
     });

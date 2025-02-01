@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Loja retrô de games clássicos e nostálgicos. Encontre Alien Trilogy, Bust a Groove II e muito mais!">
+  <meta name="keywords" content="jogos antigos, sega, ps1, retro games, world retrô">
+  <meta name="author" content="World Retrô">
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
@@ -77,37 +81,23 @@
       <div class="produtos-lista">
 
         <!-- Exemplo de Produto -->
-        <div class="produto-card" onclick="openModal('Alien Trilogy', 'imagens/alien.png', 'R$ 55,00', 'Alien Trilogy para Sega Saturno. Necessário Pseudo Saturn. Outros desbloqueios podem ou não funcionar, mas o Pseudo é certeza, cuidado com atualizações novas.')">
-          <img src="imagens/alien.png" alt="Capa do jogo Alien Trilogy">
+        <div class="produto-card" data-nome="Alien Trilogy" data-imagem="imagens/alien.png" data-preco="R$ 55,00" data-descricao="Alien Trilogy para Sega Saturno. Necessário Pseudo Saturn. Outros desbloqueios podem ou não funcionar, mas o Pseudo é certeza, cuidado com atualizações novas.">
+          <img src="imagens/alien.png" alt="Capa do jogo Alien Trilogy" loading="lazy">
           <h3>Alien Trilogy</h3>
           <p class="preco">R$ 55,00</p>
           <div class="parcelamento">(Até 6x de R$ 10,42)</div>
-          <button onclick="addToCart('Alien Trilogy', 'R$ 55,00')">Comprar Agora</button>
+          <button>Comprar Agora</button>
         </div>
 
-        <div class="produto-card" onclick="openModal('Bust a Groove II', 'imagens/groove.png', 'R$ 58,00', 'Bust a Groove II é um jogo de dança para PS1 com jogabilidade divertida e personagens cativantes.')">
-          <img src="imagens/groove.png" alt="Capa do jogo Bust a Groove II">
+        <div class="produto-card" data-nome="Bust a Groove II" data-imagem="imagens/groove.png" data-preco="R$ 58,00" data-descricao="Bust a Groove II é um jogo de dança para PS1 com jogabilidade divertida e personagens cativantes.">
+          <img src="imagens/groove.png" alt="Capa do jogo Bust a Groove II" loading="lazy">
           <h3>Bust a Groove II</h3>
           <p class="preco">R$ 58,00</p>
           <div class="parcelamento">(Até 6x de R$ 10,99)</div>
-          <button onclick="addToCart('Bust a Groove II', 'R$ 58,00')">Comprar Agora</button>
+          <button>Comprar Agora</button>
         </div>
 
-        <div class="produto-card" onclick="openModal('Super Street Fighter II Turbo', 'imagens/street.png', 'R$ 110,00', 'Super Street Fighter II Turbo traz uma jogabilidade clássica com novos personagens e modos.')">
-          <img src="imagens/street.png" alt="Street">
-          <h3>Super Street Fighter II Turbo</h3>
-          <p class="preco">R$ 110,00</p>
-          <div class="parcelamento">(Até 10x de R$ 13,05)</div>
-          <button onclick="addToCart('Super Street Fighter II Turbo', 'R$ 110,00')">Comprar Agora</button>
-        </div>
-
-        <div class="produto-card" onclick="openModal('Chase HQ. Plus', 'imagens/chase.png', 'R$ 58,00', 'Chase HQ. Plus oferece um estilo de corrida e perseguição único para os fãs de ação e velocidade.')">
-          <img src="imagens/chase.png" alt="Chase">
-          <h3>Chase HQ. Plus</h3>
-          <p class="preco">R$ 58,00</p>
-          <div class="parcelamento">(Até 6x de R$ 10,99)</div>
-          <button onclick="addToCart('Chase HQ. Plus', 'R$ 58,00')">Comprar Agora</button>
-        </div>
+        <!-- Adicione outros produtos aqui -->
 
       </div>
     </section>
@@ -116,7 +106,7 @@
   <!-- Modal de Informações do Produto -->
   <div class="modal" id="produtoModal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <span class="close" onclick="closeModal()" aria-label="Fechar modal">&times;</span>
       <h2 id="modalTitle">Nome do Produto</h2>
       <div class="modal-gallery">
         <img id="modalImage" src="" alt="Imagem do produto">
@@ -129,21 +119,21 @@
         <p><strong>Preço:</strong> R$ <span id="modalPrice">55,00</span></p>
         <p id="parcelamento">(Até 6x de R$ 10,42)</p>
       </div>
-      
-     <!-- Calcular Frete -->
-    <div class="produto-card">
-      <div class="frete">
-        <label for="cep">Calcule o frete:</label>
-        <input type="text" id="cep" placeholder="Digite seu CEP">
-        <button id="calcularFrete" onclick="calcularFrete()">Calcular frete</button>
-        <p id="freteResultado"></p>
-      </div>
 
-         <!-- Botão Adicionar ao Carrinho -->
-      <button id="addToCart">Adicionar ao Carrinho</button>
+      <!-- Calcular Frete -->
+      <div class="produto-card">
+        <div class="frete">
+          <label for="cep">Calcule o frete:</label>
+          <input type="text" id="cep" placeholder="Digite seu CEP">
+          <button id="calcularFrete" onclick="calcularFrete()">Calcular frete</button>
+          <p id="freteResultado"></p>
+        </div>
+
+        <!-- Botão Adicionar ao Carrinho -->
+        <button id="addToCartButton">Adicionar ao Carrinho</button>      
+      </div>
     </div>
   </div>
-</div>
 
   <!-- Seção do Carrinho -->
   <section class="carrinho">
@@ -153,6 +143,30 @@
   </section>
 
   <script src="worldretro.js"></script>
+  <script>
+document.querySelectorAll('.produto-card').forEach((produtoCard) => {
+  produtoCard.addEventListener('click', () => {
+    const nome = produtoCard.dataset.nome;
+    const imagem = produtoCard.dataset.imagem;
+    const preco = produtoCard.dataset.preco;
+    const descricao = produtoCard.dataset.descricao;
+
+    openModal(nome, imagem, preco, descricao);
+  });
+});
+
+  const addToCartButton = document.getElementById('addToCartButton');
+    if (addToCartButton) {
+      addToCartButton.addEventListener('click', () => {
+        const produto = document.querySelector('.produto-card');
+        const nome = produto.dataset.nome;
+        const preco = produto.dataset.preco;
+        const imagem = produto.dataset.imagem;
+        addToCart(nome, preco, imagem);
+      });
+  }
+
+  </script>
 
   <!-- Rodapé -->
   <footer>
