@@ -272,3 +272,19 @@ window.addEventListener('click', (event) => {
     modalElement.style.display = 'none';
   }
 });
+
+// Quantidade de produtos.
+document.addEventListener("DOMContentLoaded", function () {
+  function atualizarQuantidadeProdutos() {
+    const listaProdutos = document.querySelector(".produtos-lista");
+    const totalProdutos = listaProdutos.children.length; // Conta os produtos
+    document.getElementById("quantidade-produtos").textContent = totalProdutos;
+  }
+
+  // Chame a função quando a página carregar
+  atualizarQuantidadeProdutos();
+
+  // Se os produtos forem carregados dinamicamente, observe mudanças na lista
+  const observer = new MutationObserver(atualizarQuantidadeProdutos);
+  observer.observe(document.querySelector(".produtos-lista"), { childList: true });
+});

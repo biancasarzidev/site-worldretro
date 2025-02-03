@@ -642,6 +642,70 @@ nav {
     background-color: var(--secondary-color);
 }
 
+/* Estiliza os inputs de quantidade */
+.quantidade {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+  }
+  
+  /* Ajusta a disposição dos elementos no card do produto */
+  .produto-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  /* Ajusta os botões no modal */
+  .modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .modal-content button:hover {
+    background-color: #218838;
+  }
+  
+  /* Ajusta o modal para centralizar os elementos */
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  /* Estiliza os itens do carrinho */
+  .carrinho-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .carrinho-item img {
+    border-radius: 5px;
+  }
+  
+
 /* Estilos para o ícone do carrinho */
 .cart {
     position: relative;

@@ -81,20 +81,25 @@
       <div class="produtos-lista">
 
         <!-- Exemplo de Produto -->
-        <div class="produto-card" data-nome="Alien Trilogy" data-imagem="imagens/alien.png" data-preco="R$ 55,00" data-descricao="Alien Trilogy para Sega Saturno. Necessário Pseudo Saturn. Outros desbloqueios podem ou não funcionar, mas o Pseudo é certeza, cuidado com atualizações novas.">
-          <img src="imagens/alien.png" alt="Capa do jogo Alien Trilogy" loading="lazy">
+        <div class="produto-card" data-nome="Alien Trilogy" data-imagem="imagens/alien.png" data-preco="55.00">
+          <img src="imagens/alien.png" alt="Alien Trilogy" loading="lazy">
           <h3>Alien Trilogy</h3>
           <p class="preco">R$ 55,00</p>
           <div class="parcelamento">(Até 6x de R$ 10,42)</div>
-          <button>Comprar Agora</button>
+          <label for="quantidade-alien">Quantidade:</label>
+          <input type="number" id="quantidade-alien" class="quantidade" min="1" value="1">
+          <button onclick="openModal('Alien Trilogy', 'imagens/alien.png', '55.00', document.getElementById('quantidade-alien').value)">Comprar Agora</button>
         </div>
 
-        <div class="produto-card" data-nome="Bust a Groove II" data-imagem="imagens/groove.png" data-preco="R$ 58,00" data-descricao="Bust a Groove II é um jogo de dança para PS1 com jogabilidade divertida e personagens cativantes.">
-          <img src="imagens/groove.png" alt="Capa do jogo Bust a Groove II" loading="lazy">
+         <!-- Produto 2 -->
+         <div class="produto-card" data-nome="Bust a Groove II" data-imagem="imagens/groove.png" data-preco="58.00">
+          <img src="imagens/groove.png" alt="Bust a Groove II" loading="lazy">
           <h3>Bust a Groove II</h3>
           <p class="preco">R$ 58,00</p>
           <div class="parcelamento">(Até 6x de R$ 10,99)</div>
-          <button>Comprar Agora</button>
+          <label for="quantidade-groove">Quantidade:</label>
+          <input type="number" id="quantidade-groove" class="quantidade" min="1" value="1">
+          <button onclick="openModal('Bust a Groove II', 'imagens/groove.png', '58.00', document.getElementById('quantidade-groove').value)">Comprar Agora</button>
         </div>
 
         <!-- Adicione outros produtos aqui -->
@@ -114,7 +119,8 @@
           <!-- Links para vídeos -->
         </div>
       </div>
-      <p id="modalDescription"><strong>Descrição do Produto</strong></p>      
+      <p id="modalDescription"><strong>Descrição do Produto</strong></p>    
+      <label for="modalQuantity">Quantidade:</label>  
       <div style="text-align: center;">
         <p><strong>Preço:</strong> R$ <span id="modalPrice">55,00</span></p>
         <p id="parcelamento">(Até 6x de R$ 10,42)</p>
@@ -162,9 +168,54 @@ document.querySelectorAll('.produto-card').forEach((produtoCard) => {
         const nome = produto.dataset.nome;
         const preco = produto.dataset.preco;
         const imagem = produto.dataset.imagem;
-        addToCart(nome, preco, imagem);
+        addToCart(nome, preco, imagem, quantidade);
       });
   }
+
+  document.getElementById("addToCartButton").addEventListener("click", function () {
+      const nome = document.getElementById("modalTitle").textContent;
+      const preco = parseFloat(document.getElementById("modalPrice").textContent);
+      const imagem = document.getElementById("modalImage").src;
+      const quantidade = parseInt(document.getElementById("modalQuantity").value);
+
+      addToCart(nome, preco, imagem, quantidade);
+  });
+
+  function addToCart(nome, preco, imagem, quantidade) {
+    alert(`${quantidade}x ${nome} foi adicionado ao carrinho!`);
+    
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    let produtoIndex = carrinho.findIndex(produto => produto.nome === nome);
+
+    if (produtoIndex >= 0) {
+      carrinho[produtoIndex].quantidade += quantidade;
+    } else {
+      carrinho.push({ nome, preco, imagem, quantidade });
+    }
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    atualizarCarrinho();
+
+    // Pequeno delay para garantir que a interface seja atualizada corretamente antes de fechar o modal
+    setTimeout(() => {
+      closeModal();
+    }, 300);
+  }
+
+  function closeModal() {
+    document.getElementById("produtoModal").style.display = "none";
+  } 
+
+  document.getElementById("addToCartButton").addEventListener("click", function () {
+    const nome = document.getElementById("modalTitle").textContent;
+    const preco = parseFloat(document.getElementById("modalPrice").textContent);
+    const imagem = document.getElementById("modalImage").src;
+    const quantidade = parseInt(document.getElementById("modalQuantity").value);
+
+    addToCart(nome, preco, imagem, quantidade);
+    closeModal(); // Força o fechamento do modal após adicionar o produto
+  });
+
 
   </script>
 

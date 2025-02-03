@@ -139,28 +139,34 @@
   <script>
   //banners
   let currentBanner = 0;
-  const banners = document.querySelectorAll('.banner');
-  const arrows = document.querySelectorAll('.arrow');
+const banners = document.querySelectorAll('.banner');
+const arrows = document.querySelectorAll('.arrow');
 
-  function showBanner(index) {
-    banners.forEach((banner, i) => {
-      banner.classList.toggle('active', i === index);
-    });
-  }
-
-  arrows.forEach((arrow) => {
-    arrow.addEventListener('click', () => {
-      currentBanner = arrow.classList.contains('right')
-        ? (currentBanner + 1) % banners.length
-        : (currentBanner - 1 + banners.length) % banners.length;
-      showBanner(currentBanner);
-    });
+function showBanner(index) {
+  banners.forEach((banner, i) => {
+    banner.classList.toggle('active', i === index);
   });
+}
 
-  setInterval(() => {
-    currentBanner = (currentBanner + 1) % banners.length;
+// Evento para as setas de navegação
+arrows.forEach((arrow) => {
+  arrow.addEventListener('click', () => {
+    currentBanner = arrow.classList.contains('right')
+      ? (currentBanner + 1) % banners.length
+      : (currentBanner - 1 + banners.length) % banners.length;
     showBanner(currentBanner);
-  }, 5000); // Altere o tempo em milissegundos conforme necessário
+  });
+});
+
+// Troca automática dos banners a cada 5 segundos
+setInterval(() => {
+  currentBanner = (currentBanner + 1) % banners.length;
+  showBanner(currentBanner);
+}, 5000);
+
+// Exibir o primeiro banner ao carregar a página
+showBanner(currentBanner);
+
 
 // Função para adicionar um produto ao carrinho
 function addToCart(productName, productPrice) {
